@@ -88,7 +88,7 @@
 <meta property="og:description" content="IntroductionIn last post we reviewed the classical linear regression and now let’s look from Bayesian perspective. There is well-known philosophical difference between frequentist and Bayesian. Intere">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://letianzj.github.io/2017/12/30/bayesian-linear-regression/bayesian_dynamics.png">
-<meta property="og:updated_time" content="2018-09-11T00:39:51.861Z">
+<meta property="og:updated_time" content="2018-09-11T23:32:09.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bayesian Linear Regression">
 <meta name="twitter:description" content="IntroductionIn last post we reviewed the classical linear regression and now let’s look from Bayesian perspective. There is well-known philosophical difference between frequentist and Bayesian. Intere">
@@ -358,22 +358,22 @@
       
         <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In <a href="/2017/12/26/classical-linear-regression/" title="last post">last post</a> we reviewed the classical linear regression and now let’s look from Bayesian perspective. There is well-known philosophical difference between <a href="https://en.wikipedia.org/wiki/Frequentist_inference" target="_blank" rel="noopener">frequentist</a> and <a href="https://en.wikipedia.org/wiki/Bayesian_inference" target="_blank" rel="noopener">Bayesian</a>. Interested readers can read further this debate online such as <a href="https://en.wikipedia.org/wiki/Probability_interpretations" target="_blank" rel="noopener">this one on Wiki</a>. In my opinion, one advantage of Bayesian is its ability to perform <a href="https://en.wikipedia.org/wiki/Recursive_Bayesian_estimation" target="_blank" rel="noopener">online machine learning</a> recursivelly as new information comes along incrementally. </p>
 <p>In terms of the linear regression, <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem" target="_blank" rel="noopener">Bayes’s Theorem</a> can be written as</p>
-<p>$$<br>f(\beta|y,X)=\frac{f(y|\beta,X)f(\beta|X)}{f(y|X)}<br>$$</p>
+<p>$$<br>f(\beta|y,X)=\frac{f(y|\beta,X)f(\beta|X)}{f(y|X)}<br>\tag{1.1}<br>$$</p>
 <p>where $f(\beta|X)$ is the <strong>prior</strong> belief of parameter $\beta$; $f(y|\beta,X)$ is the <strong>likelihood</strong> of observing $y$ given our <strong>prior</strong>; and $f(y|X)$ is called <strong>evidence</strong>. Finally, $f(\beta|y,X)$ is the <strong>posterior</strong> belief of pararmeter $\beta$ once the evidence $y$ has been taken into account. This posterior then becomes new prior and the circle continues recursively.</p>
 <p>In this post we will bring the example from <a href="/2017/12/26/classical-linear-regression/" title="last post">last post</a> into Bayesian world.     </p>
 <a id="more"></a>
 <h2 id="Conjugate-Bayesian-Simple-Regression"><a href="#Conjugate-Bayesian-Simple-Regression" class="headerlink" title="Conjugate Bayesian Simple Regression"></a>Conjugate Bayesian Simple Regression</h2><p>Let’s continue to use the example from <a href="/2017/12/26/classical-linear-regression/" title="last post">last post</a> but re-phrase it in Bayesian way as follows</p>
-<p>$$<br>y \sim N(X\beta, \sigma_eI) \\<br>\beta \sim N(\beta_0, \Sigma_{\beta,0})<br>$$</p>
+<p>$$<br>y \sim N(X\beta, \sigma_eI) \\<br>\beta \sim N(\beta_0, \Sigma_{\beta,0})<br>\tag{2.1}<br>$$</p>
 <p>where the second formula claims that the <strong>prior</strong> distribution of parameter $\beta$ is normal distribution with hyper-parameters $\beta_0$ and $\Sigma_{\beta,0}$; and the first formula says that the <strong>likelihood</strong> also follows a normal distribution. As you can see, the key step is to find the missing <strong>posterior</strong> distribution determined by Bayes Theorem.</p>
 <p>To achieve this, we exploit a critical property known as <a href="https://en.wikipedia.org/wiki/Conjugate_prior" target="_blank" rel="noopener">conjugate prior</a> in the <a href="https://en.wikipedia.org/wiki/Normal-inverse-gamma_distribution" target="_blank" rel="noopener">Normal Inverse Gamma family</a>. It mathematically proves that a normally distributed <strong>prior</strong> conjugates with normally distributed <strong>likelihood</strong> to produce a normally distributed <strong>posterior</strong> as </p>
-<p>$$<br>\beta \sim N(\beta_1, \Sigma_{\beta,1})<br>$$</p>
+<p>$$<br>\beta \sim N(\beta_1, \Sigma_{\beta,1})<br>\tag{2.2}<br>$$</p>
 <p>Now the question becomes to find new hyper-parameter $\beta_1$ and its standard deviation $\Sigma_{\beta,1}$. </p>
 <p>Specifically in our previous example of simple linear regression,</p>
-<p>$$<br>y=X\beta+\epsilon=a+bx+\epsilon<br>$$</p>
+<p>$$<br>y=X\beta+\epsilon=a+bx+\epsilon<br>\tag{2.3}<br>$$</p>
 <p>where $a$ and $b$ are intercept and slope, respectively. The hyper-parameters of prior are defined as</p>
-<p> $$<br> \begin{matrix}<br>\beta_0 &amp;=&amp; \begin{bmatrix} a_0 \\ b_0 \end{bmatrix} \\<br>\Sigma_{\beta,0} &amp;=&amp; \begin{bmatrix} \sigma_{a,0}^2 &amp; 0 \\ 0 &amp; \sigma_{b,0}^2 \end{bmatrix}<br>\end{matrix}<br> $$</p>
+<p> $$<br> \begin{matrix}<br>\beta_0 &amp;=&amp; \begin{bmatrix} a_0 \\ b_0 \end{bmatrix} \\<br>\Sigma_{\beta,0} &amp;=&amp; \begin{bmatrix} \sigma_{a,0}^2 &amp; 0 \\ 0 &amp; \sigma_{b,0}^2 \end{bmatrix}<br>\end{matrix}<br>\tag{2.4}<br> $$</p>
 <p> if we observe two points $(x_1,y_1)$ and $(x_2, y_2)$ (it takes two points to determine a line), by using the <a href="https://en.wikipedia.org/wiki/Conjugate_prior" target="_blank" rel="noopener">Multivariate normal with known covariance matrix $\Sigma$</a> (in our case two-points means bi-variate), the posterior is given as</p>
-<p>$$<br>\begin{matrix}<br>\beta_1 &amp;=&amp; \Sigma_{\beta,1}(\Sigma_{\beta,0}^{-1}\beta_0+\Sigma_y^{-1}\mu_y)\\<br>\Sigma_{\beta,1} &amp;=&amp; (\Sigma_{\beta,0}^{-1} + \Sigma_{y}^{-1})^{-1}\\<br>\mu_y &amp;=&amp; \begin{bmatrix} \frac{x_1y_2-x_2y_1}{x_1-x_2} &amp; \frac{y_1-y_2}{x_1-x_2} \end{bmatrix}^T    \\<br>\Sigma_{y} &amp;=&amp; \begin{bmatrix} [(\frac{x_1}{x_1-x_2})^2+(\frac{x_2}{x_1-x_2})^2]\sigma_e^2 &amp; 0 \\ 0 &amp; 2(\frac{1}{x_1-x_2})^2\sigma_e^2 \end{bmatrix}<br>\end{matrix}<br>$$</p>
+<p>$$<br>\begin{matrix}<br>\beta_1 &amp;=&amp; \Sigma_{\beta,1}(\Sigma_{\beta,0}^{-1}\beta_0+\Sigma_y^{-1}\mu_y)\\<br>\Sigma_{\beta,1} &amp;=&amp; (\Sigma_{\beta,0}^{-1} + \Sigma_{y}^{-1})^{-1}\\<br>\mu_y &amp;=&amp; \begin{bmatrix} \frac{x_1y_2-x_2y_1}{x_1-x_2} &amp; \frac{y_1-y_2}{x_1-x_2} \end{bmatrix}^T    \\<br>\Sigma_{y} &amp;=&amp; \begin{bmatrix} [(\frac{x_1}{x_1-x_2})^2+(\frac{x_2}{x_1-x_2})^2]\sigma_e^2 &amp; 0 \\ 0 &amp; 2(\frac{1}{x_1-x_2})^2\sigma_e^2 \end{bmatrix}<br>\end{matrix}<br>\tag{2.5}<br>$$</p>
 <p>After that, $\beta_1$, $\Sigma_{\beta,1}$ become $\beta_0$, $\Sigma_{\beta,0}$ and the iteration continues.</p>
 <p>The formula seems complicated but conceptually it is very simple. Here is how it works. Imagine that in the beginning you believe the regression line should be horizontal. But then the first two points turn out to be vertical. So you think you might be wrong and you might not be so sure about things therefore you curved and tilt yourself toward the observed vertical line to somewhere 45 degrees. This is essentially what the above formulas do.</p>
 <p> Then you continue to run another 249 time (because we have 500 points or 250 pairs). Everytime you adjust your previous belief by next two points you observe. It is easy to see that the longer you go, the less important it is where original starting belief is. Furthermore, there is nothing stopping you from reusing them again after you finish all the 500 points. It will make the estimation less and less dependent on the starting point and converges closer and closer to the true value.</p>
@@ -540,7 +540,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

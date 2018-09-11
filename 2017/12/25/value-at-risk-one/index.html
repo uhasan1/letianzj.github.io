@@ -88,7 +88,7 @@
 <meta property="og:description" content="IntroductionValue at Risk (VaR) is widely used by financial institutions to measure market risks or potential investment losses. It tells the maximum possible loss for a given portfolio over a certain">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://letianzj.github.io/2017/12/25/value-at-risk-one/value_at_risk.png">
-<meta property="og:updated_time" content="2018-01-20T23:33:34.161Z">
+<meta property="og:updated_time" content="2018-09-11T23:31:09.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Value at Risk">
 <meta name="twitter:description" content="IntroductionValue at Risk (VaR) is widely used by financial institutions to measure market risks or potential investment losses. It tells the maximum possible loss for a given portfolio over a certain">
@@ -357,28 +357,28 @@
 
       
         <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Value at Risk (VaR) is widely used by financial institutions to measure market risks or potential investment losses. It tells the maximum possible loss for a given portfolio over a certain time horizon, with a certain confidence level $\alpha$, or</p>
-<p>$$<br>Pr(Loss \le -VaR)=1-\alpha<br>$$</p>
+<p>$$<br>Pr(Loss \le -VaR)=1-\alpha<br>\tag{1.1}<br>$$</p>
 <p>There are three approaches to calculate VaR, that is, historical simulation, variance-covariance, and Monte Carlo simulation.</p>
 <a id="more"></a>
 <p>In this post we explore the variance-covariance method, or the delta-normal method, for VaR, Marginal VaR, and Component VaR.<br>Consider a portfolio of n assets with corresponding weights w and covariance matrix $\Sigma$, then the value this portfolio V, and its return and risk are</p>
-<p>$$<br>\begin{matrix}<br>V&amp;=&amp;\sum_{i=1}^{n} V_i\<br>r_p&amp;=&amp; w^T\cdot r \<br>\sigma_p^2 &amp;=&amp; w^T\Sigma w<br>\end{matrix}<br>$$</p>
+<p>$$<br>\begin{matrix}<br>V&amp;=&amp;\sum_{i=1}^{n} V_i\<br>r_p&amp;=&amp; w^T\cdot r \<br>\sigma_p^2 &amp;=&amp; w^T\Sigma w<br>\end{matrix}<br>\tag{1.2}<br>$$</p>
 <p>Assuming return normality,  The value at risk of the portfolio in dollar amount is</p>
-<p>$$<br>VaR_p = z\sigma_pV<br>$$ (1)</p>
+<p>$$<br>VaR_p = z\sigma_pV<br>\tag{1.3}<br>$$</p>
 <p>where z is the inverser normal of confidence level $\alpha$. For example, if $\alpha$=5%, then z=NORMSINV(0.95)=1.645 by Excel spreadsheet.<br>Similarily, we can look at each individual stock and define its value at risk. Due to portfolio diversification, the portfolio VaR will be smaller than the sum of each individual VaR.</p>
-<p>$$<br>\begin{matrix}<br>VaR_i=z\sigma_i V_i \<br>VaR_p \lt \sum_{i=1}^{n} VaR_i<br>\end{matrix}<br>$$</p>
+<p>$$<br>\begin{matrix}<br>VaR_i=z\sigma_i V_i \<br>VaR_p \lt \sum_{i=1}^{n} VaR_i<br>\end{matrix}<br>\tag{1.4}<br>$$</p>
 <p>A natural question then is if we can normalize VaR so that the VaR of all the component stocks sum up to exactly the VaR of the portfolio? This is the concept of Marginal VaR (MVaR) and Componenet VaR (CVaR).</p>
 <p>Marginal VaR is defined as derivative of portfolio w.r.t the per unit dollar change in value of the component stock, or</p>
-<p>$$<br>MVaR_i=\frac{\partial VaR_p}{\partial V_i} = \frac{\partial z\sigma_pV_p}{\partial w_iV_p}=z\frac{\partial \sigma_p}{\partial w_i}=z\frac{\sigma_{ip}}{\sigma_p}<br>$$ (2)</p>
+<p>$$<br>MVaR_i=\frac{\partial VaR_p}{\partial V_i} = \frac{\partial z\sigma_pV_p}{\partial w_iV_p}=z\frac{\partial \sigma_p}{\partial w_i}=z\frac{\sigma_{ip}}{\sigma_p}<br>\tag{1.5}<br>$$</p>
 <p>where $\sigma_{ip}$ is the covariance between ith asset and portfolio p, and the last equation uses the following fact that,</p>
-<p>$$<br>\begin{matrix}<br>\frac{\partial\sigma_P}{\partial w_i} &amp;=&amp; \frac{[ \sum_{i=1}^{n} w_i^2\sigma_i^2 + \sum_{i=1}^n \sum_{j=1, j\ne i}^{n} w_iw_jc_{ij} ]^{1/2} } { dw_i }  \<br>&amp;=&amp; \frac{1}{2} [ 2w_i\sigma_i^2 + 2 \sum_{j=1, j\ne 1}^{n} w_jc_{ij} ] \times<br>[ \sum_{i=1}^{n} w_i^2\sigma_i^2 + \sum_{i=1}^n \sum_{j=1, j\ne i}^{n} w_iw_jc_{ij}]^{-1/2}  \<br>  &amp;=&amp; \frac{w_i^2\sigma_i^2 + \sum_{j=1, j\ne 1}^{n} w_j c_{ij} } {\sigma_p}<br>= \frac{c_{ip}}{\sigma_p}<br>\end{matrix}<br>$$</p>
+<p>$$<br>\begin{matrix}<br>\frac{\partial\sigma_P}{\partial w_i} &amp;=&amp; \frac{[ \sum_{i=1}^{n} w_i^2\sigma_i^2 + \sum_{i=1}^n \sum_{j=1, j\ne i}^{n} w_iw_jc_{ij} ]^{1/2} } { dw_i }  \<br>&amp;=&amp; \frac{1}{2} [ 2w_i\sigma_i^2 + 2 \sum_{j=1, j\ne 1}^{n} w_jc_{ij} ] \times<br>[ \sum_{i=1}^{n} w_i^2\sigma_i^2 + \sum_{i=1}^n \sum_{j=1, j\ne i}^{n} w_iw_jc_{ij}]^{-1/2}  \<br>  &amp;=&amp; \frac{w_i^2\sigma_i^2 + \sum_{j=1, j\ne 1}^{n} w_j c_{ij} } {\sigma_p}<br>= \frac{c_{ip}}{\sigma_p}<br>\end{matrix}<br>\tag{1.6}<br>$$</p>
 <p>Note that <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient" target="_blank" rel="noopener">return correlation</a> and <a href="https://en.wikipedia.org/wiki/Beta_(finance" target="_blank" rel="noopener">beta coefficient</a>) are respectively,</p>
-<p>$$<br>\begin{matrix}<br>\rho_{ip}=\frac{\sigma_{ip}}{\sigma_i\sigma_p} \<br>\beta_{ip}=\frac{\sigma_{ip}}{\sigma_p^2}<br>\end{matrix}<br>$$</p>
+<p>$$<br>\begin{matrix}<br>\rho_{ip}=\frac{\sigma_{ip}}{\sigma_i\sigma_p} \<br>\beta_{ip}=\frac{\sigma_{ip}}{\sigma_p^2}<br>\end{matrix}<br>\tag{1.7}<br>$$</p>
 <p>then Marginal VaR can be rewritten as</p>
-<p>$$<br>MVaR_i=z\frac{\sigma_{ip}}{\sigma_p}=z\sigma_i\rho_{ip}=z\sigma_p\beta_{ip}<br>$$ (3)</p>
+<p>$$<br>MVaR_i=z\frac{\sigma_{ip}}{\sigma_p}=z\sigma_i\rho_{ip}=z\sigma_p\beta_{ip}<br>\tag{1.8}<br>$$</p>
 <p>At last, Component VaR (CVaR) is defined as,</p>
-<p>$$<br>CVaR_i=MVaR_i \cdot V_i<br>$$ (4)</p>
+<p>$$<br>CVaR_i=MVaR_i \cdot V_i<br>\tag{1.9}<br>$$</p>
 <p>It holds nicely to the following relationship,</p>
-<p>$$<br>\sum_{i=1}^{n}CVaR_i=\sum_{i=1}^{n}z\sigma_p\beta_{ip}w_iV=z\sigma_pV{\sum_{i=1}^{n}w_i\beta_{ip}}=VaR_p<br>$$ (5)</p>
+<p>$$<br>\sum_{i=1}^{n}CVaR_i=\sum_{i=1}^{n}z\sigma_p\beta_{ip}w_iV=z\sigma_pV{\sum_{i=1}^{n}w_i\beta_{ip}}=VaR_p<br>\tag{1.10}<br>$$</p>
 <h2 id="Real-Portfolio"><a href="#Real-Portfolio" class="headerlink" title="Real Portfolio"></a>Real Portfolio</h2><p>To illustrate the VaR delta-normal model, we continue to use the portfolio in the post in portfolio optimization.</p>
 <p>First, let’s download historical data and estimate the covariance matrix from it</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">assets = [<span class="string">'AAPL'</span>,       <span class="comment"># Apple</span></span><br><span class="line">          <span class="string">'KO'</span>,         <span class="comment"># Coca-Cola</span></span><br><span class="line">          <span class="string">'DIS'</span>,        <span class="comment"># Disney</span></span><br><span class="line">          <span class="string">'XOM'</span>,        <span class="comment"># Exxon Mobil</span></span><br><span class="line">          <span class="string">'JPM'</span>,        <span class="comment"># JPMorgan Chase</span></span><br><span class="line">          <span class="string">'MCD'</span>,        <span class="comment"># McDonald's</span></span><br><span class="line">          <span class="string">'WMT'</span>]         <span class="comment"># Walmart</span></span><br><span class="line"></span><br><span class="line">holdings = [<span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>,<span class="number">400</span>,<span class="number">500</span>,<span class="number">600</span>,<span class="number">700</span>]          <span class="comment"># number of shares in each assets</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># download historical data from quandl</span></span><br><span class="line">hist_data = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> asset <span class="keyword">in</span> assets:</span><br><span class="line">    data = quandl.get(<span class="string">'wiki/'</span>+asset, start_date=<span class="string">'2015-01-01'</span>, end_date=<span class="string">'2017-12-31'</span>, authtoken=<span class="string">'ay68s2CUzKbVuy8GAqxj'</span>)</span><br><span class="line">    hist_data[asset] = data[<span class="string">'Adj. Close'</span>]</span><br><span class="line">hist_data = pd.concat(hist_data, axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
@@ -539,7 +539,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
