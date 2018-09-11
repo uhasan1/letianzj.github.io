@@ -82,17 +82,17 @@
 <meta name="description" content="IntroductionLinear Regress is the most frequently used statistical and machine learning technique. It tries to put a straight line between feature variables $X$ and label variable $y$ that best fits t">
 <meta name="keywords" content="Machine Learning,Deep Learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Simple Linear Regression">
-<meta property="og:url" content="http://letianzj.github.io/2018/03/15/simple-linear-regression/index.html">
+<meta property="og:title" content="Classical Linear Regression">
+<meta property="og:url" content="http://letianzj.github.io/2017/12/26/classical-linear-regression/index.html">
 <meta property="og:site_name" content="Letian Wang">
 <meta property="og:description" content="IntroductionLinear Regress is the most frequently used statistical and machine learning technique. It tries to put a straight line between feature variables $X$ and label variable $y$ that best fits t">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://letianzj.github.io/2018/03/15/simple-linear-regression/scatter_plot.png">
-<meta property="og:updated_time" content="2018-09-07T03:19:26.662Z">
+<meta property="og:image" content="http://letianzj.github.io/2017/12/26/classical-linear-regression/scatter_plot.png">
+<meta property="og:updated_time" content="2018-09-11T01:17:20.428Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Simple Linear Regression">
+<meta name="twitter:title" content="Classical Linear Regression">
 <meta name="twitter:description" content="IntroductionLinear Regress is the most frequently used statistical and machine learning technique. It tries to put a straight line between feature variables $X$ and label variable $y$ that best fits t">
-<meta name="twitter:image" content="http://letianzj.github.io/2018/03/15/simple-linear-regression/scatter_plot.png">
+<meta name="twitter:image" content="http://letianzj.github.io/2017/12/26/classical-linear-regression/scatter_plot.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://letianzj.github.io/2018/03/15/simple-linear-regression/"/>
+  <link rel="canonical" href="http://letianzj.github.io/2017/12/26/classical-linear-regression/"/>
 
 
 
 
 
-  <title>Simple Linear Regression | Letian Wang</title>
+  <title>Classical Linear Regression | Letian Wang</title>
   
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2018/03/15/simple-linear-regression/">
+    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2017/12/26/classical-linear-regression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Letian">
@@ -262,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Simple Linear Regression</h1>
+          <h1 class="post-title" itemprop="name headline">Classical Linear Regression</h1>
         
 
         <div class="post-meta">
@@ -274,8 +274,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-15T21:30:00-04:00">
-                2018-03-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-26T20:45:00-05:00">
+                2017-12-26
               </time>
             
 
@@ -326,9 +326,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/15/simple-linear-regression/#comments" itemprop="discussionUrl">
+                <a href="/2017/12/26/classical-linear-regression/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/15/simple-linear-regression/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/12/26/classical-linear-regression/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -358,19 +358,25 @@
       
         <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://en.wikipedia.org/wiki/Linear_regression" target="_blank" rel="noopener">Linear Regress</a> is the most frequently used statistical and machine learning technique. It tries to put a straight line between feature variables $X$ and label variable $y$ that best fits the dataset. In mathematical term, it can be expressed as</p>
 <p>$$<br>y=X\beta+\epsilon<br>$$</p>
-<p>where $\beta$ is the parameter vector that includes the constant intercept term and exposure coefficient to each feature variable $x\in X$.</p>
+<p>where $\beta$ is the parameter vector that includes the constant intercept term and exposure coefficients to each feature variable $x\in X$.</p>
 <p><a href="https://en.wikipedia.org/wiki/Ordinary_least_squares" target="_blank" rel="noopener">Least Square (OLS)</a> provides a closed-form estimation of coefficient $\beta$ called <a href="https://en.wikipedia.org/wiki/Linear_least_squares#Derivation_of_the_normal_equations" target="_blank" rel="noopener">normal equation</a> given as follows:</p>
 <p>$$<br>\hat{\beta} = (X^TX)^{-1}X^Ty<br>$$</p>
-<p>In the case of linear regression, it coincides with <a href="https://en.wikipedia.org/wiki/Maximum_likelihood_estimation" target="_blank" rel="noopener">Maximinum Likelihood Estimation (MLE)</a></p>
+<p>In the case of linear regression, it is also <a href="https://en.wikipedia.org/wiki/Maximum_likelihood_estimation" target="_blank" rel="noopener">Maximinum Likelihood Estimation (MLE)</a></p>
 <a id="more"></a>
-<p>There are tons of materials about this topic in the textbooks and online so I won’t spill out more formulas. Let’s look at the Python code illustration.</p>
+<p>There are tons of materials about this topic in textbooks and online so I won’t spill out more formulas. Let’s look at the Python code illustration.</p>
 <h2 id="Simple-Illustration"><a href="#Simple-Illustration" class="headerlink" title="Simple Illustration"></a>Simple Illustration</h2><p>First let’s generate a sample dataset and then solve for the coefficient via the Normal equation </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sample_size = <span class="number">500</span></span><br><span class="line">mu_e = <span class="number">0</span></span><br><span class="line">sigma_e = <span class="number">3.0</span></span><br><span class="line">random_num_generator = np.random.RandomState(<span class="number">0</span>)</span><br><span class="line">x = <span class="number">10.0</span> * random_num_generator.rand(sample_size)</span><br><span class="line">e = random_num_generator.normal(mu_e, sigma_e, sample_size)</span><br><span class="line">y = <span class="number">2.0</span> * x + <span class="number">1.0</span>  +  e          <span class="comment"># a = 2.0; b = 1.0; y = a * x + b</span></span><br><span class="line">plt.scatter(x, y, color=<span class="string">'blue'</span>)</span><br><span class="line"></span><br><span class="line">X = np.vstack((np.ones(sample_size), x)).T</span><br><span class="line">params_closed_form = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y)</span><br><span class="line">print(<span class="string">'pamameters: %.7f, %.7f'</span> %(params_closed_form[<span class="number">0</span>], params_closed_form[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
-<p>The coefficient and intercept used to generate the dataset is 2.0 and 1.0. Then when we try to back out them from the dataset we get 2.0086851 and 0.6565181, respetively. This is within the <a href="https://en.wikipedia.org/wiki/Confidence_interval" target="_blank" rel="noopener">confidence interval</a> of regression statistics.</p>
-<p>Alought there is no need to solve for the coefficent directly, as The recommended way to do in Python is through its sklearn package.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">lm_model = LinearRegression(copy_X=<span class="keyword">True</span>, fit_intercept=<span class="keyword">True</span>, normalize=<span class="keyword">False</span>)</span><br><span class="line">lm_model.fit(x.reshape(<span class="number">-1</span>,<span class="number">1</span>), y)        <span class="comment"># fit() expects 2D array</span></span><br><span class="line">print(<span class="string">'pamameters: %.7f, %.7f'</span> %(lm_model.intercept_, lm_model.coef_))</span><br><span class="line"></span><br><span class="line">xfit = np.linspace(<span class="number">0</span>, <span class="number">10</span>, sample_size)</span><br><span class="line">yfit = lm_model.predict(xfit.reshape(<span class="number">-1</span>,<span class="number">1</span>))</span><br><span class="line">plt.scatter(x, y, color=<span class="string">'blue'</span>)</span><br><span class="line">plt.plot(xfit, yfit, color=<span class="string">'red'</span>, linewidth=<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">r_square = lm_model.score(x.reshape(<span class="number">-1</span>,<span class="number">1</span>), y)</span><br><span class="line">print(<span class="string">'R-Square %.7f'</span> %(r_square))</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scipy.stats.stats <span class="keyword">import</span> pearsonr</span><br><span class="line">print(<span class="string">'Its square root is Pearson correlation coefficient: %.7f == %.7f'</span> %(np.sqrt(r_square), pearsonr(x, y)[<span class="number">0</span>]))</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sample_size = <span class="number">500</span></span><br><span class="line">sigma_e = <span class="number">3.0</span>             <span class="comment"># true value of parameter error sigma</span></span><br><span class="line">random_num_generator = np.random.RandomState(<span class="number">0</span>)</span><br><span class="line">x = <span class="number">10.0</span> * random_num_generator.rand(sample_size)</span><br><span class="line">e = random_num_generator.normal(<span class="number">0</span>, sigma_e, sample_size)</span><br><span class="line">y = <span class="number">1.0</span> + <span class="number">2.0</span> * x +  e          <span class="comment"># a = 1.0; b = 2.0; y = a + b*x</span></span><br><span class="line">plt.scatter(x, y, color=<span class="string">'blue'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># normal equation to estimate the model parameters</span></span><br><span class="line">X = np.vstack((np.ones(sample_size), x)).T</span><br><span class="line">params_closed_form = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y)</span><br><span class="line">print(<span class="string">'pamameters: %.7f, %.7f'</span> %(params_closed_form[<span class="number">0</span>], params_closed_form[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+<p>The coefficient and intercept used to generate the dataset are 2.0 and 1.0. Then when we try to back out them from the dataset we get 2.0086851 and 0.6565181, respetively. This is within the <a href="https://en.wikipedia.org/wiki/Confidence_interval" target="_blank" rel="noopener">confidence interval</a> of regression statistics.</p>
+<p>Nevertheless there is no need to solve for the coefficent directly, as the recommended way to do so in Python is through its sklearn package.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"><span class="comment"># The next two lines does the regression</span></span><br><span class="line">lm_model = LinearRegression(copy_X=<span class="keyword">True</span>, fit_intercept=<span class="keyword">True</span>, normalize=<span class="keyword">False</span>)</span><br><span class="line">lm_model.fit(x.reshape(<span class="number">-1</span>,<span class="number">1</span>), y)        <span class="comment"># fit() expects 2D array</span></span><br><span class="line">print(<span class="string">'pamameters: %.7f, %.7f'</span> %(lm_model.intercept_, lm_model.coef_))</span><br><span class="line"></span><br><span class="line"><span class="comment"># present the graph</span></span><br><span class="line">xfit = np.linspace(<span class="number">0</span>, <span class="number">10</span>, sample_size)</span><br><span class="line">yfit = lm_model.predict(xfit.reshape(<span class="number">-1</span>,<span class="number">1</span>))</span><br><span class="line">ytrue = <span class="number">2.0</span> * xfit + <span class="number">1.0</span>       <span class="comment"># we know the true value of slope and intercept</span></span><br><span class="line">plt.scatter(x, y, color=<span class="string">'blue'</span>)</span><br><span class="line">plt.plot(xfit, yfit, color=<span class="string">'red'</span>, label=<span class="string">'fitted line'</span>, linewidth=<span class="number">3</span>)</span><br><span class="line">plt.plot(xfit, ytrue, color=<span class="string">'green'</span>, label=<span class="string">'true line'</span>, linewidth=<span class="number">3</span>)</span><br><span class="line">plt.legend()</span><br><span class="line"></span><br><span class="line"><span class="comment"># R-Square</span></span><br><span class="line">r_square = lm_model.score(x.reshape(<span class="number">-1</span>,<span class="number">1</span>), y)</span><br><span class="line">print(<span class="string">'R-Square %.7f'</span> %(r_square))</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scipy.stats.stats <span class="keyword">import</span> pearsonr</span><br><span class="line"><span class="comment"># The square root of R-Square is correlation coefficient</span></span><br><span class="line">print(<span class="string">'Its square root is Pearson correlation coefficient: %.7f == %.7f'</span> %(np.sqrt(r_square), pearsonr(x, y)[<span class="number">0</span>]))</span><br></pre></td></tr></table></figure></p>
 <p><img src="scatter_plot.png" align="left" width="100%" height="100%"></p>
-<p>The R square indicates that 79.7% of the variability in y can be explained by x. Furthermore, for <a href="https://en.wikipedia.org/wiki/Simple_linear_regression" target="_blank" rel="noopener">simple linear regression</a>, one can obtain the <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient" target="_blank" rel="noopener">Pearson correlation coefficient</a> between $x$ and $y$ by taking square root, which shows 89% positive correlated.</p>
-<p>Above is a quick introduction on linear regression, served as the starting point for more advanced topics in Machine Learning.</p>
+<p>As you can see the true line and fitted line are hardly distingishable in the context of sample dataset. The R square indicates that 79.7% of the variability in y can be explained by x. Furthermore, in <a href="https://en.wikipedia.org/wiki/Simple_linear_regression" target="_blank" rel="noopener">simple linear regression</a>, its square root is <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient" target="_blank" rel="noopener">Pearson correlation coefficient</a> between $x$ and $y$, which shows 89% positive correlated.</p>
+<p>Above is a quick introduction on linear regression, served as the starting point for more advanced topics in Machine Learning. In next post we’ll look at Beyesian Linear Regression.</p>
+<p><strong>Reference</strong></p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Linear_regression" target="_blank" rel="noopener">Linear Regression, Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ordinary_least_squares" target="_blank" rel="noopener">Ordinary Least Squares, Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Maximum_likelihood_estimation" target="_blank" rel="noopener">Maximum Likelihood Estimation, Wikipedia</a></li>
+</ul>
 
       
     </div>
@@ -391,7 +397,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="http://letianzj.github.io/2018/03/15/simple-linear-regression/" title="Simple Linear Regression">http://letianzj.github.io/2018/03/15/simple-linear-regression/</a>
+    <a href="http://letianzj.github.io/2017/12/26/classical-linear-regression/" title="Classical Linear Regression">http://letianzj.github.io/2017/12/26/classical-linear-regression/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -431,7 +437,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/18/bayesian-linear-regression/" rel="prev" title="Bayesian Linear Regression">
+              <a href="/2017/12/30/bayesian-linear-regression/" rel="prev" title="Bayesian Linear Regression">
                 Bayesian Linear Regression <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -524,7 +530,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -765,18 +771,18 @@
   
 
     
-      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+      <script id="dsq-count-scr" src="https://https-letianzj-github-io.disqus.com/count.js" async></script>
     
 
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://letianzj.github.io/2018/03/15/simple-linear-regression/';
-          this.page.identifier = '2018/03/15/simple-linear-regression/';
-          this.page.title = 'Simple Linear Regression';
+          this.page.url = 'http://letianzj.github.io/2017/12/26/classical-linear-regression/';
+          this.page.identifier = '2017/12/26/classical-linear-regression/';
+          this.page.title = 'Classical Linear Regression';
         };
         var d = document, s = d.createElement('script');
-        s.src = 'https://.disqus.com/embed.js';
+        s.src = 'https://https-letianzj-github-io.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
       </script>
@@ -796,10 +802,6 @@
   
 
 
-
-
-
-  
 
 
 
