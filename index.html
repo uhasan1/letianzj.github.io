@@ -242,6 +242,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2018/03/03/tensorflow-linear-regression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Letian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Letian Wang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/03/tensorflow-linear-regression/" itemprop="url">Tensorflow Linear Regression</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T22:50:00-05:00">
+                2018-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine_Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep_Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/03/tensorflow-linear-regression/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/03/tensorflow-linear-regression/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>After four posts on linear regression, we are finally at the door of <a href="https://en.wikipedia.org/wiki/Deep_learning" target="_blank" rel="noopener">deep learning</a>. Today we will build a simple <a href="https://en.wikipedia.org/wiki/Feedforward_neural_network" target="_blank" rel="noopener">feed-forward neural network</a> (but not deep) with one single <a href="https://en.wikipedia.org/wiki/Perceptron" target="_blank" rel="noopener">perceptron</a> with the help of <a href="https://www.tensorflow.org/" target="_blank" rel="noopener">Tensorflow</a>. Tensorflow is an open-source popular especially after the retirement of <a href="https://en.wikipedia.org/wiki/Theano_(software" target="_blank" rel="noopener">Theano</a>).</p>
+<p>two steps, first build a graph and then let the data (tensor) flow through the graph, hence the name TensorFlow.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2018/01/20/kalman-filter-linear-regression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -357,7 +522,7 @@
       
         
           <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://en.wikipedia.org/wiki/Kalman_filter" target="_blank" rel="noopener">Kalman Filter</a> is a <a href="https://en.wikipedia.org/wiki/State-space_representation" target="_blank" rel="noopener">state space model</a> that assumes the system state evolves by some hidden and unobservable pattern. Instead we can only observe some measurable features from the system, based on which we try to guess the current state of the system. An example would be without openning Bloomberg terminal, you try to guess stock market movement every day from the trader’s facial expression.  </p>
-<p><a href="https://www.amazon.com/Pairs-Trading-Quantitative-Methods-Analysis/dp/047146067" target="_blank" rel="noopener">This book</a> provides a simple random walk example where the hidden state is the true equilibrium stock price in some time interval while stock close price of that interval serves as an observation with errors. Then it proves that the true equilibrium price is the weighted average of close prices with the weights being Fibonacci sequence. <a href="https://www.amazon.com/Algorithmic-Trading-Winning-Strategies-Rationale/dp/1118460146" target="_blank" rel="noopener">Dr Chan</a> make Kalman Filter popular to the online quantitative trading community with his EWA-EWC ETF pairs trading strategy.</p>
+<p><a href="https://www.amazon.com/Pairs-Trading-Quantitative-Methods-Analysis/dp/047146067" target="_blank" rel="noopener">This book</a> provides a simple random walk example where the hidden state is the true equilibrium stock price in some time interval while stock close price of that interval serves as an observation with errors. Then it proves that the true equilibrium price is the weighted average of close prices with the weights being Fibonacci sequence. <a href="https://www.amazon.com/Algorithmic-Trading-Winning-Strategies-Rationale/dp/1118460146" target="_blank" rel="noopener">Dr Chan</a> makes Kalman Filter popular to the online quantitative trading community with his EWA-EWC ETF pairs trading strategy.</p>
 <p>In this post we will continue with our simple linear regression example from <a href="/2018/01/07/mcmc-linear-regression/" title="last post">last post</a>, and follow the plain Kalman Filter logic without the help of Python packages such as <a href="https://pykalman.github.io/" target="_blank" rel="noopener">PyKalman</a>.</p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1302,7 +1467,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
