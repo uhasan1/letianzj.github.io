@@ -88,7 +88,7 @@
 <meta property="og:description" content="IntroductionKalman Filter is a state space model that assumes the system state evolves by some hidden and unobservable pattern. Instead we can only observe some measurable features from the system, ba">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://letianzj.github.io/2018/01/20/kalman-filter-linear-regression/hidden_state_evolution.png">
-<meta property="og:updated_time" content="2018-09-12T03:41:27.385Z">
+<meta property="og:updated_time" content="2018-09-12T10:59:50.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kalman Filter Linear Regression">
 <meta name="twitter:description" content="IntroductionKalman Filter is a state space model that assumes the system state evolves by some hidden and unobservable pattern. Instead we can only observe some measurable features from the system, ba">
@@ -361,7 +361,7 @@
 <p>In this post we will continue with our simple linear regression example from <a href="/2018/01/07/mcmc-linear-regression/" title="last post">last post</a>, and follow the plain Kalman Filter logic without the help of Python packages such as <a href="https://pykalman.github.io/" target="_blank" rel="noopener">PyKalman</a>.</p>
 <a id="more"></a>
 <h2 id="Kalman-Fitler-Regression-System"><a href="#Kalman-Fitler-Regression-System" class="headerlink" title="Kalman Fitler Regression System"></a>Kalman Fitler Regression System</h2><p>Kalman Filter as presented in the appendix is very mechanical. The hard part is to design a system that reflects the reality, and after that it’s just a matter of following the steps. </p>
-<p>In our simple linear example the state variable $\theta$ is the regression coefficient $\beta$ and is assumed to follow the following transition equation</p>
+<p>In our simple linear example the state variable $\theta$ is the regression coefficient $\beta$ and is assumed to follow a transition equation of random walk with Gaussian innovations:</p>
 <p>$$<br>\beta_k = \begin{bmatrix} a_k \\ b_k \end{bmatrix} =\beta_{k-1} + w_t<br>\tag{2.1}<br>$$</p>
 <p>where $a_k$ and $b_k$ are intercept and slope, respectively. This corresponds to equation $(A.1)$. </p>
 <p>Comparing with <a href="/2018/01/07/mcmc-linear-regression/" title="last post">last post</a> where the posterior distribution is static, here the state evolves dynamically over time with linear transition conditions, hence the name Dynamic Linear Model (DLM).</p>
