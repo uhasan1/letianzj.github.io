@@ -88,7 +88,7 @@
 <meta property="og:description" content="IntroductionValue at Risk (VaR) is widely used by financial institutions to measure market risks or potential investment losses. It tells the maximum possible loss for a given portfolio over a certain">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://letianzj.github.io/2017/12/25/value-at-risk-one/value_at_risk.png">
-<meta property="og:updated_time" content="2018-09-11T23:31:09.917Z">
+<meta property="og:updated_time" content="2018-09-11T23:35:40.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Value at Risk">
 <meta name="twitter:description" content="IntroductionValue at Risk (VaR) is widely used by financial institutions to measure market risks or potential investment losses. It tells the maximum possible loss for a given portfolio over a certain">
@@ -370,7 +370,7 @@
 <p>Marginal VaR is defined as derivative of portfolio w.r.t the per unit dollar change in value of the component stock, or</p>
 <p>$$<br>MVaR_i=\frac{\partial VaR_p}{\partial V_i} = \frac{\partial z\sigma_pV_p}{\partial w_iV_p}=z\frac{\partial \sigma_p}{\partial w_i}=z\frac{\sigma_{ip}}{\sigma_p}<br>\tag{1.5}<br>$$</p>
 <p>where $\sigma_{ip}$ is the covariance between ith asset and portfolio p, and the last equation uses the following fact that,</p>
-<p>$$<br>\begin{matrix}<br>\frac{\partial\sigma_P}{\partial w_i} &amp;=&amp; \frac{[ \sum_{i=1}^{n} w_i^2\sigma_i^2 + \sum_{i=1}^n \sum_{j=1, j\ne i}^{n} w_iw_jc_{ij} ]^{1/2} } { dw_i }  \<br>&amp;=&amp; \frac{1}{2} [ 2w_i\sigma_i^2 + 2 \sum_{j=1, j\ne 1}^{n} w_jc_{ij} ] \times<br>[ \sum_{i=1}^{n} w_i^2\sigma_i^2 + \sum_{i=1}^n \sum_{j=1, j\ne i}^{n} w_iw_jc_{ij}]^{-1/2}  \<br>  &amp;=&amp; \frac{w_i^2\sigma_i^2 + \sum_{j=1, j\ne 1}^{n} w_j c_{ij} } {\sigma_p}<br>= \frac{c_{ip}}{\sigma_p}<br>\end{matrix}<br>\tag{1.6}<br>$$</p>
+<p>$$<br>\begin{matrix}<br>\frac{\partial\sigma_P}{\partial w_i} &amp;=&amp; \frac{[ \sum_{i=1}^{n} w_i^2\sigma_i^2 + \sum_{i=1}^n \sum_{j=1, j\ne i}^{n} w_iw_jc_{ij} ]^{1/2} } { dw_i }  \\<br>&amp;=&amp; \frac{1}{2} [ 2w_i\sigma_i^2 + 2 \sum_{j=1, j\ne 1}^{n} w_jc_{ij} ] \times<br>[ \sum_{i=1}^{n} w_i^2\sigma_i^2 + \sum_{i=1}^n \sum_{j=1, j\ne i}^{n} w_iw_jc_{ij}]^{-1/2}  \\<br>  &amp;=&amp; \frac{w_i^2\sigma_i^2 + \sum_{j=1, j\ne 1}^{n} w_j c_{ij} } {\sigma_p}<br>= \frac{c_{ip}}{\sigma_p}<br>\end{matrix}<br>\tag{1.6}<br>$$</p>
 <p>Note that <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient" target="_blank" rel="noopener">return correlation</a> and <a href="https://en.wikipedia.org/wiki/Beta_(finance" target="_blank" rel="noopener">beta coefficient</a>) are respectively,</p>
 <p>$$<br>\begin{matrix}<br>\rho_{ip}=\frac{\sigma_{ip}}{\sigma_i\sigma_p} \<br>\beta_{ip}=\frac{\sigma_{ip}}{\sigma_p^2}<br>\end{matrix}<br>\tag{1.7}<br>$$</p>
 <p>then Marginal VaR can be rewritten as</p>
