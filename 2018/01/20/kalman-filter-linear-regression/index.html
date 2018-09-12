@@ -88,7 +88,7 @@
 <meta property="og:description" content="IntroductionKalman Filter is a state space model that assumes the system state evolves by some hidden and unobservable pattern. Instead we can only observe some measurable features from the system, ba">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://letianzj.github.io/2018/01/20/kalman-filter-linear-regression/hidden_state_evolution.png">
-<meta property="og:updated_time" content="2018-09-12T03:20:38.279Z">
+<meta property="og:updated_time" content="2018-09-12T03:25:24.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kalman Filter Linear Regression">
 <meta name="twitter:description" content="IntroductionKalman Filter is a state space model that assumes the system state evolves by some hidden and unobservable pattern. Instead we can only observe some measurable features from the system, ba">
@@ -386,7 +386,7 @@
 <p>After state evolution, we have the measurement equation to observe it by </p>
 <p>$$<br> \begin{array}{lcl}<br> y_t &amp;=&amp; F_t\theta_t+v_t \\<br> (m\times 1) &amp; &amp; (m\times p)(p\times 1)+(m\times 1)<br> \end{array}<br> \tag{A.2}<br> $$</p>
 <p>where $v_t \sim i.i.d.\hspace{5pt} N_m(0,V_t)$</p>
-<p>To kick off the system, we need initial guess $\hat{ \theta}<em>{0|0}$ and initial covariance confidence matrix $P</em>{0|0}$. </p>
+<p>To kick off the system, we need initial guess $\hat{\theta}0|0$ and initial covariance confidence matrix $P_{0|0}$. </p>
 <p>At each step $k$, we first forecast a-priori predictions of state and state covariance as</p>
 <p>$$<br>\begin{array}{lcl}<br>\hat{\theta}_{k|k-1} &amp;=&amp; G_k\hat{\theta}_{k-1|k-1} \\<br>(p\times 1) &amp; &amp; (p\times p)(p\times 1)<br>\end{array}<br>\tag{A.3}<br>$$</p>
 <p>$$<br>\begin{array}{lcl}<br>P_{k|k-1} &amp;=&amp; G_kP_{k-1|k-1}G_k^T+W_t \\<br>(p\times p) &amp; &amp; (p\times p)(p\times p)(p\times p)+(p\times p)<br>\end{array}<br>\tag{A.4}<br>$$</p>
@@ -397,8 +397,8 @@
 <p>The Kalman gain reflects how much the residual contributes to the state update, is given by</p>
 <p>$$<br>\begin{array}{lcl}<br>K_k &amp;=&amp; P_{k|k-1}F_k^TS_K^{-1} \\<br>(p\times m) &amp; &amp; (p\times p)(p\times m)(m\times m)<br>\end{array}<br>\tag{A.7}<br>$$</p>
 <p>and Posterior estimation of state and state covariance</p>
-<p>$$<br>\begin{array}{lcl}<br>\hat{\theta}<em>{k|k} &amp;=&amp; \hat{\theta}</em>{k|k-1}+K_k\hat{y_k} \\<br>(p\times 1) &amp; &amp; (p\times 1)+(p\times m)(m\times 1)<br>\end{array}<br>\tag{A.8}<br>$$</p>
-<p>$$<br>\begin{array}{lcl}<br> P_{k|k} &amp;=&amp; (I-K_kF_k)P_{k|k-1} \\<br>(p\times p) &amp; &amp; {(p\times p)-(p\times m)(m\times p)}(p\times p)<br>\end{array}<br>\tag{A.9}<br>$$</p>
+<p>$$<br>\begin{array}{lcl}<br>\hat{\theta}k|k &amp;=&amp; \hat{\theta}_{k|k-1}+K_k\hat{y_k} \\<br>(p\times 1) &amp; &amp; (p\times 1)+(p\times m)(m\times 1)<br>\end{array}<br>\tag{A.8}<br>$$</p>
+<p>$$<br>\begin{array}{lcl}<br> P_{k|k} &amp;=&amp; (I-K_kF_k)P_{k|k-1} \\<br>(p\times p) &amp; &amp; ((p\times p)-(p\times m)(m\times p))(p\times p)<br>\end{array}<br>\tag{A.9}<br>$$</p>
 <p>After this, repeat the steps between (A.3) and (A.9)</p>
 
       
