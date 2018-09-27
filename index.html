@@ -81,13 +81,13 @@
 
 <meta name="description" content="Personal Blog">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Letian Wang">
+<meta property="og:title" content="Letian Wang&#39;s Blog">
 <meta property="og:url" content="http://letianzj.github.io/index.html">
-<meta property="og:site_name" content="Letian Wang">
+<meta property="og:site_name" content="Letian Wang&#39;s Blog">
 <meta property="og:description" content="Personal Blog">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Letian Wang">
+<meta name="twitter:title" content="Letian Wang&#39;s Blog">
 <meta name="twitter:description" content="Personal Blog">
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <title>Letian Wang</title>
+  <title>Letian Wang's Blog</title>
   
 
 
@@ -155,7 +155,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Letian Wang</span>
+        <span class="site-title">Letian Wang's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2018/03/03/tensorflow-linear-regression/">
+    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2018/03/24/cointegration-pairs-trading/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Letian">
@@ -251,7 +251,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Letian Wang">
+      <meta itemprop="name" content="Letian Wang's Blog">
     </span>
 
     
@@ -261,7 +261,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/03/tensorflow-linear-regression/" itemprop="url">Tensorflow Linear Regression</a></h1>
+                <a class="post-title-link" href="/2018/03/24/cointegration-pairs-trading/" itemprop="url">Cointegration and Pairs Trading</a></h1>
         
 
         <div class="post-meta">
@@ -273,8 +273,685 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T22:50:00-05:00">
-                2018-03-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-24T18:40:00-04:00">
+                2018-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Systematic-Investment/" itemprop="url" rel="index">
+                    <span itemprop="name">Systematic Investment</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Systematic-Investment/Quantitative-Trading/" itemprop="url" rel="index">
+                    <span itemprop="name">Quantitative Trading</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/24/cointegration-pairs-trading/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/24/cointegration-pairs-trading/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In <a href="/2018/03/18/mean-reversion/" title="last post">last post</a> we examined the mean reversion statistical test and traded on a single name time series. Often times single stock price is not mean-reverting but we are able to artificially create a portfolio of stocks that is mean-reverting. If the portfolio has only two stocks, it is known as <a href="https://en.wikipedia.org/wiki/Pairs_trade" target="_blank" rel="noopener">pairs trading</a>, a special form of <a href="https://en.wikipedia.org/wiki/Statistical_arbitrage" target="_blank" rel="noopener">statistical arbitrage</a>. By combining two <a href="https://en.wikipedia.org/wiki/Cointegration" target="_blank" rel="noopener">cointegrated</a> stocks, we can construct a spread that is mean-reverting, even when these two stocks themselves are not. Please refer to the appendix if you want to check out cointegration first.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/24/cointegration-pairs-trading/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2018/03/18/mean-reversion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Letian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Letian Wang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/18/mean-reversion/" itemprop="url">Mean Reversion</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-18T23:10:00-04:00">
+                2018-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Systematic-Investment/" itemprop="url" rel="index">
+                    <span itemprop="name">Systematic Investment</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Systematic-Investment/Quantitative-Trading/" itemprop="url" rel="index">
+                    <span itemprop="name">Quantitative Trading</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/18/mean-reversion/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/18/mean-reversion/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://en.wikipedia.org/wiki/Mean_reversion_(finance)" target="_blank" rel="noopener">Mean reversion</a> processes are widely observed in finance. As opposed to <a href="https://en.wikipedia.org/wiki/Trend_following" target="_blank" rel="noopener">trend following</a>, it assumes that the process has a tendency to revert to its average level over time. This average level is usually determined by physical or economical forces such as long term supply and demand. Prices might deviate from that long term mean due to sentimental or short-term disturbances on the market but eventually will revert back to its intrinsic value.</p>
+<p>A continuous mean-reverting time series can be represented by an <a href="https://en.wikipedia.org/wiki/Ornstein%E2%80%93Uhlenbeck_process" target="_blank" rel="noopener">Ornstein-Uhlenbeck</a> process or <a href="https://en.wikipedia.org/wiki/Vasicek_model" target="_blank" rel="noopener">Vasicek model</a> in interest rate field, which is a special case of <a href="https://en.wikipedia.org/wiki/Hull%E2%80%93White_model" target="_blank" rel="noopener">Hull-White model</a> with constant volatility. It is also the continuous-time analogue of the discrete-time <a href="https://en.wikipedia.org/wiki/Autoregressive_model" target="_blank" rel="noopener">AR(1)<br>process</a>. I relegate the mathematical details to appendix.</p>
+<p>To calibrate the OU process, there are generally two approaches based on formula (A9), i.e., the Least square and Maximum Likelihood Estimation. <a href="https://commoditymodels.files.wordpress.com/2010/02/estimating-the-parameters-of-a-mean-reverting-ornstein-uhlenbeck-process1.pdf" target="_blank" rel="noopener">This document</a> gives a good summary and comparison of results.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/18/mean-reversion/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2018/02/11/elitequant-excel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Letian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Letian Wang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/11/elitequant-excel/" itemprop="url">EliteQuant Excel</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-11T21:15:00-05:00">
+                2018-02-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Systematic-Investment/" itemprop="url" rel="index">
+                    <span itemprop="name">Systematic Investment</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Systematic-Investment/Trading-Ssytem/" itemprop="url" rel="index">
+                    <span itemprop="name">Trading Ssytem</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/11/elitequant-excel/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/02/11/elitequant-excel/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://github.com/EliteQuant/EliteQuant_Excel" target="_blank" rel="noopener">EliteQuant Excel</a> is an open source quantitative modeling solution in Excel. Excel is one of the most popular tools in the business world, across both sell side and buy side. EliteQuant Excel is an Excel Add-in that enables you to create quantitative financial models in Excel spreadsheet, in the same way how financial professionals such as traders, quants, and portfolio managers do their daily to daily work.</p>
+<p>You are able to create pricing and simulation tools for products across all asset classes such as interest rate or FX, and from plain vanilla to exotic be-spoken instruments. You are also able to backtest and live trade from Excel, with the so-called RTD, or real-time data support.</p>
+<p>This post will discuss the technical stack of EliteQuant Excel from developer’s perspective.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/11/elitequant-excel/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2018/01/28/elitequant-backtesting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Letian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Letian Wang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/28/elitequant-backtesting/" itemprop="url">Elitequant Backtesting</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-28T19:20:00-05:00">
+                2018-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Systematic-Investment/" itemprop="url" rel="index">
+                    <span itemprop="name">Systematic Investment</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Systematic-Investment/Trading-Ssytem/" itemprop="url" rel="index">
+                    <span itemprop="name">Trading Ssytem</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/28/elitequant-backtesting/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/01/28/elitequant-backtesting/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://github.com/EliteQuant" target="_blank" rel="noopener">Elitequant</a> is an open source low latency event driven trading system. This post goes over the structure of its historical backtesting module. I’ll use <a href="https://github.com/EliteQuant/EliteQuant_Python" target="_blank" rel="noopener">Elitequant Python</a> as example but the structure is shared literally with other lanaguages such as <a href="https://github.com/EliteQuant/EliteQuant_R" target="_blank" rel="noopener">Elitequant R</a> and <a href="https://github.com/EliteQuant/EliteQuant_Matlab" target="_blank" rel="noopener">Elitequant Matlab</a>. </p>
+<p>This post serves as preparation stage for future works in backtesting quantitative systematic strategies. Nevertheless, you can safely skip it without jeopardizing the ability of following future posts if you have already your own backtesting system. Even if you haven’t yet, there are other backtest platforms available such as <a href="https://www.quantopian.com/" target="_blank" rel="noopener">Quantopian</a> in Python, <a href="https://www.quantconnect.com/" target="_blank" rel="noopener">QuantConnect</a> in C#, or <a href="https://www.rdocumentation.org/packages/quantstrat/versions/0.14.6" target="_blank" rel="noopener">QuantStrat</a> in R. But they all share one feature in common – event driven mechanism.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/28/elitequant-backtesting/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2018/01/20/tensorflow-linear-regression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Letian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Letian Wang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/20/tensorflow-linear-regression/" itemprop="url">Tensorflow Linear Regression</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-20T22:50:00-05:00">
+                2018-01-20
               </time>
             
 
@@ -297,7 +974,7 @@
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine_Learning</span>
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
 
@@ -308,7 +985,7 @@
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep_Learning</span>
+                    <span itemprop="name">Deep Learning</span>
                   </a>
                 </span>
 
@@ -325,9 +1002,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/03/tensorflow-linear-regression/#comments" itemprop="discussionUrl">
+                <a href="/2018/01/20/tensorflow-linear-regression/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/03/tensorflow-linear-regression/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/01/20/tensorflow-linear-regression/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -360,7 +1037,7 @@
 <p>Tensorflow structure consists of two phases – <a href="https://www.tensorflow.org/guide/graphs" target="_blank" rel="noopener">Graphs and Sessions</a>. Usually you start with building a graph and then let the data (in the format of multidimensional array or tensor) flow through the graph, hence the name Tensorflow.</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/03/tensorflow-linear-regression/#more" rel="contents">
+            <a class="btn" href="/2018/01/20/tensorflow-linear-regression/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -411,7 +1088,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2018/01/20/kalman-filter-linear-regression/">
+    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2018/01/07/kalman-filter-linear-regression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Letian">
@@ -420,7 +1097,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Letian Wang">
+      <meta itemprop="name" content="Letian Wang's Blog">
     </span>
 
     
@@ -430,7 +1107,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/20/kalman-filter-linear-regression/" itemprop="url">Kalman Filter Linear Regression</a></h1>
+                <a class="post-title-link" href="/2018/01/07/kalman-filter-linear-regression/" itemprop="url">Kalman Filter Linear Regression</a></h1>
         
 
         <div class="post-meta">
@@ -442,177 +1119,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-20T18:20:00-05:00">
-                2018-01-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine_Learning</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep_Learning</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/01/20/kalman-filter-linear-regression/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/01/20/kalman-filter-linear-regression/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://en.wikipedia.org/wiki/Kalman_filter" target="_blank" rel="noopener">Kalman Filter</a> is a <a href="https://en.wikipedia.org/wiki/State-space_representation" target="_blank" rel="noopener">state space model</a> that assumes the system state evolves by some hidden and unobservable pattern. Instead we can only observe some measurable features from the system, based on which we try to guess the current state of the system. An example would be without openning Bloomberg terminal, you try to guess stock market movement every day from the trader’s facial expression.  </p>
-<p><a href="https://www.amazon.com/Pairs-Trading-Quantitative-Methods-Analysis/dp/047146067" target="_blank" rel="noopener">This book</a> provides a simple random walk example where the hidden state is the true equilibrium stock price in some time interval while stock close price of that interval serves as an observation with errors. Then it proves that the true equilibrium price is the weighted average of close prices with the weights being Fibonacci sequence. <a href="https://www.amazon.com/Algorithmic-Trading-Winning-Strategies-Rationale/dp/1118460146" target="_blank" rel="noopener">Dr Chan</a> makes Kalman Filter popular to the online quantitative trading community with his EWA-EWC ETF pairs trading strategy.</p>
-<p>In this post we will continue with our simple linear regression example from <a href="/2018/01/07/mcmc-linear-regression/" title="last post">last post</a>, and follow the plain Kalman Filter logic without the help of Python packages such as <a href="https://pykalman.github.io/" target="_blank" rel="noopener">PyKalman</a>.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/20/kalman-filter-linear-regression/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2018/01/07/mcmc-linear-regression/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Letian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Letian Wang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/07/mcmc-linear-regression/" itemprop="url">MCMC Linear Regression</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T17:35:00-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T19:20:00-05:00">
                 2018-01-07
               </time>
             
@@ -636,7 +1143,7 @@
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine_Learning</span>
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
 
@@ -646,8 +1153,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep_Learning</span>
+                  <a href="/categories/Machine-Learning/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
 
@@ -664,9 +1171,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/07/mcmc-linear-regression/#comments" itemprop="discussionUrl">
+                <a href="/2018/01/07/kalman-filter-linear-regression/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/01/07/mcmc-linear-regression/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/01/07/kalman-filter-linear-regression/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -695,11 +1202,12 @@
 
       
         
-          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In <a href="/2017/12/30/bayesian-linear-regression/" title="last post">last post</a> we examined the Bayesian approach for linear regression. It relies on the <a href="https://en.wikipedia.org/wiki/Conjugate_prior" target="_blank" rel="noopener">conjugate prior</a> assumption, which nicely sets posterior to Gaussian distribution. In reality, most times we don’t have this luxury, so we rely instead on a technique called <a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo" target="_blank" rel="noopener">Markov Chain Monte Carlo (MCMC)</a>. One popular algorithm in this family is <a href="https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm" target="_blank" rel="noopener">Metropolis–Hastings</a> and this is what we are looking at today. Before we proceed, I want to point out that this post is inpsired by <a href="https://theoreticalecology.wordpress.com/2010/09/17/metropolis-hastings-mcmc-in-r/" target="_blank" rel="noopener">this article in R</a>.</p>
-<p>MCMC answers to this question: if we don’t know what the posterior distribution looks like, and we don’t have the closed form solution as given in equation (2.5) of <a href="/2017/12/30/bayesian-linear-regression/" title="last post">last post</a> for $\beta_1$ and $\Sigma_{\beta,1}$, how do we obtain the posterior distrubtion of $\beta$? Can we at least approximate it? Metropolis–Hastings provides a numerical Monte Carlo simulation method to magically draw a sample out of the posterior distribution. The magic is to construct a Markov Chain that converges to the given distribution as its stationary equilibrium distribution. Hence the name Markov Chain Monte Carlo (MCMC).</p>
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://en.wikipedia.org/wiki/Kalman_filter" target="_blank" rel="noopener">Kalman Filter</a> is a <a href="https://en.wikipedia.org/wiki/State-space_representation" target="_blank" rel="noopener">state space model</a> that assumes the system state evolves by some hidden and unobservable pattern. Instead we can only observe some measurable features from the system, based on which we try to guess the current state of the system. An example would be without openning Bloomberg terminal, you try to guess stock market movement every day from the trader’s facial expression.  A graphical expexplanation can be found <a href="http://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/" target="_blank" rel="noopener">here</a>.</p>
+<p><a href="https://www.amazon.com/Pairs-Trading-Quantitative-Methods-Analysis/dp/047146067" target="_blank" rel="noopener">This book</a> provides a simple random walk example where the hidden state is the true equilibrium stock price in some time interval while stock close price of that interval serves as an observation with errors. Then it proves that the true equilibrium price is the weighted average of close prices with the weights being Fibonacci sequence. <a href="https://www.amazon.com/Algorithmic-Trading-Winning-Strategies-Rationale/dp/1118460146" target="_blank" rel="noopener">Dr Chan</a> makes Kalman Filter popular to the online quantitative trading community with his EWA-EWC ETF pairs trading strategy.</p>
+<p>In this post we will continue with our simple linear regression example from <a href="/2017/12/30/mcmc-linear-regression/" title="last post">last post</a>, and follow the plain Kalman Filter logic without the help of Python packages such as <a href="https://pykalman.github.io/" target="_blank" rel="noopener">PyKalman</a>.</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/07/mcmc-linear-regression/#more" rel="contents">
+            <a class="btn" href="/2018/01/07/kalman-filter-linear-regression/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -750,7 +1258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2017/12/30/bayesian-linear-regression/">
+    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2017/12/30/mcmc-linear-regression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Letian">
@@ -759,7 +1267,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Letian Wang">
+      <meta itemprop="name" content="Letian Wang's Blog">
     </span>
 
     
@@ -769,7 +1277,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/30/bayesian-linear-regression/" itemprop="url">Bayesian Linear Regression</a></h1>
+                <a class="post-title-link" href="/2017/12/30/mcmc-linear-regression/" itemprop="url">MCMC Linear Regression</a></h1>
         
 
         <div class="post-meta">
@@ -781,7 +1289,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T22:35:00-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T21:30:00-05:00">
                 2017-12-30
               </time>
             
@@ -805,7 +1313,7 @@
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine_Learning</span>
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
 
@@ -815,8 +1323,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep_Learning</span>
+                  <a href="/categories/Machine-Learning/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
 
@@ -833,9 +1341,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/30/bayesian-linear-regression/#comments" itemprop="discussionUrl">
+                <a href="/2017/12/30/mcmc-linear-regression/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/30/bayesian-linear-regression/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/12/30/mcmc-linear-regression/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -864,14 +1372,11 @@
 
       
         
-          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In <a href="/2017/12/26/classical-linear-regression/" title="last post">last post</a> we reviewed the classical linear regression and now let’s look from Bayesian perspective. There is well-known philosophical difference between <a href="https://en.wikipedia.org/wiki/Frequentist_inference" target="_blank" rel="noopener">frequentist</a> and <a href="https://en.wikipedia.org/wiki/Bayesian_inference" target="_blank" rel="noopener">Bayesian</a>. Interested readers can read further this debate online such as <a href="https://en.wikipedia.org/wiki/Probability_interpretations" target="_blank" rel="noopener">this one on Wiki</a>. In my opinion, one advantage of Bayesian is its ability to perform <a href="https://en.wikipedia.org/wiki/Recursive_Bayesian_estimation" target="_blank" rel="noopener">online machine learning</a> recursivelly as new information comes along incrementally. </p>
-<p>In terms of the linear regression, <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem" target="_blank" rel="noopener">Bayes’s Theorem</a> can be written as</p>
-<p>$$<br>f(\beta|y,X)=\frac{f(y|\beta,X)f(\beta|X)}{f(y|X)}<br>\tag{1.1}<br>$$</p>
-<p>where $f(\beta|X)$ is the <strong>prior</strong> belief of parameter $\beta$; $f(y|\beta,X)$ is the <strong>likelihood</strong> of observing $y$ given our <strong>prior</strong>; and $f(y|X)$ is called <strong>evidence</strong>. Finally, $f(\beta|y,X)$ is the <strong>posterior</strong> belief of pararmeter $\beta$ once the evidence $y$ has been taken into account. This posterior then becomes new prior and the circle continues recursively.</p>
-<p>In this post we will bring the example from <a href="/2017/12/26/classical-linear-regression/" title="last post">last post</a> into Bayesian world.     </p>
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In <a href="/2017/12/26/bayesian-linear-regression/" title="last post">last post</a> we examined the Bayesian approach for linear regression. It relies on the <a href="https://en.wikipedia.org/wiki/Conjugate_prior" target="_blank" rel="noopener">conjugate prior</a> assumption, which nicely sets posterior to Gaussian distribution. In reality, most times we don’t have this luxury, so we rely instead on a technique called <a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo" target="_blank" rel="noopener">Markov Chain Monte Carlo (MCMC)</a>. One popular algorithm in this family is <a href="https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm" target="_blank" rel="noopener">Metropolis–Hastings</a> and this is what we are looking at today. Before we proceed, I want to point out that this post is inpsired by <a href="https://theoreticalecology.wordpress.com/2010/09/17/metropolis-hastings-mcmc-in-r/" target="_blank" rel="noopener">this article in R</a>.</p>
+<p>MCMC answers to this question: if we don’t know what the posterior distribution looks like, and we don’t have the closed form solution as given in equation (2.5) of <a href="/2017/12/26/bayesian-linear-regression/" title="last post">last post</a> for $\beta_1$ and $\Sigma_{\beta,1}$, how do we obtain the posterior distrubtion of $\beta$? Can we at least approximate it? Metropolis–Hastings provides a numerical Monte Carlo simulation method to magically draw a sample out of the posterior distribution. The magic is to construct a Markov Chain that converges to the given distribution as its stationary equilibrium distribution. Hence the name Markov Chain Monte Carlo (MCMC).</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/30/bayesian-linear-regression/#more" rel="contents">
+            <a class="btn" href="/2017/12/30/mcmc-linear-regression/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -922,7 +1427,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2017/12/26/classical-linear-regression/">
+    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2017/12/26/bayesian-linear-regression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Letian">
@@ -931,7 +1436,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Letian Wang">
+      <meta itemprop="name" content="Letian Wang's Blog">
     </span>
 
     
@@ -941,7 +1446,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/26/classical-linear-regression/" itemprop="url">Classical Linear Regression</a></h1>
+                <a class="post-title-link" href="/2017/12/26/bayesian-linear-regression/" itemprop="url">Bayesian Linear Regression</a></h1>
         
 
         <div class="post-meta">
@@ -953,7 +1458,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-26T20:45:00-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-26T22:35:00-05:00">
                 2017-12-26
               </time>
             
@@ -977,7 +1482,7 @@
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine_Learning</span>
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
 
@@ -987,8 +1492,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep_Learning</span>
+                  <a href="/categories/Machine-Learning/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
 
@@ -1005,9 +1510,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/26/classical-linear-regression/#comments" itemprop="discussionUrl">
+                <a href="/2017/12/26/bayesian-linear-regression/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/26/classical-linear-regression/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/12/26/bayesian-linear-regression/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1036,15 +1541,14 @@
 
       
         
-          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://en.wikipedia.org/wiki/Linear_regression" target="_blank" rel="noopener">Linear Regress</a> is the most frequently used statistical and machine learning technique. It tries to put a straight line between feature variables $X$ and label variable $y$ that best fits the dataset. In mathematical term, it can be expressed as</p>
-<p>$$<br>y=X\beta+\epsilon  \tag{1.1}<br>$$</p>
-<p>where $\beta$ is the parameter vector that includes the constant intercept term and exposure coefficients to each feature variable $x\in X$.</p>
-<p><a href="https://en.wikipedia.org/wiki/Ordinary_least_squares" target="_blank" rel="noopener">Least Square (OLS)</a> provides a closed-form estimation of coefficient $\beta$ called <a href="https://en.wikipedia.org/wiki/Linear_least_squares#Derivation_of_the_normal_equations" target="_blank" rel="noopener">normal equation</a> given as follows:</p>
-<p>$$<br>\hat{\beta} = (X^TX)^{-1}X^Ty  \tag{1.2}<br>$$</p>
-<p>In the case of linear regression, it is also <a href="https://en.wikipedia.org/wiki/Maximum_likelihood_estimation" target="_blank" rel="noopener">Maximinum Likelihood Estimation (MLE)</a></p>
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In <a href="/2017/12/20/classical-linear-regression/" title="last post">last post</a> we reviewed the classical linear regression and now let’s look from Bayesian perspective. There is well-known philosophical difference between <a href="https://en.wikipedia.org/wiki/Frequentist_inference" target="_blank" rel="noopener">frequentist</a> and <a href="https://en.wikipedia.org/wiki/Bayesian_inference" target="_blank" rel="noopener">Bayesian</a>. Interested readers can read further this debate online such as <a href="https://en.wikipedia.org/wiki/Probability_interpretations" target="_blank" rel="noopener">this one on Wiki</a>. In my opinion, one advantage of Bayesian is its ability to perform <a href="https://en.wikipedia.org/wiki/Recursive_Bayesian_estimation" target="_blank" rel="noopener">online machine learning</a> recursivelly as new information comes along incrementally. </p>
+<p>In terms of the linear regression, <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem" target="_blank" rel="noopener">Bayes’s Theorem</a> can be written as</p>
+<p>$$<br>f(\beta|y,X)=\frac{f(y|\beta,X)f(\beta|X)}{f(y|X)}<br>\tag{1.1}<br>$$</p>
+<p>where $f(\beta|X)$ is the <strong>prior</strong> belief of parameter $\beta$; $f(y|\beta,X)$ is the <strong>likelihood</strong> of observing $y$ given our <strong>prior</strong>; and $f(y|X)$ is called <strong>evidence</strong>. Finally, $f(\beta|y,X)$ is the <strong>posterior</strong> belief of pararmeter $\beta$ once the evidence $y$ has been taken into account. This posterior then becomes new prior and the circle continues recursively.</p>
+<p>In this post we will bring the example from <a href="/2017/12/20/classical-linear-regression/" title="last post">last post</a> into Bayesian world.     </p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/26/classical-linear-regression/#more" rel="contents">
+            <a class="btn" href="/2017/12/26/bayesian-linear-regression/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1095,7 +1599,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2017/12/25/value-at-risk-one/">
+    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2017/12/20/classical-linear-regression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Letian">
@@ -1104,7 +1608,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Letian Wang">
+      <meta itemprop="name" content="Letian Wang's Blog">
     </span>
 
     
@@ -1114,7 +1618,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/25/value-at-risk-one/" itemprop="url">Value at Risk</a></h1>
+                <a class="post-title-link" href="/2017/12/20/classical-linear-regression/" itemprop="url">Classical Linear Regression</a></h1>
         
 
         <div class="post-meta">
@@ -1126,177 +1630,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-25T19:00:00-05:00">
-                2017-12-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Portfolio-Management/" itemprop="url" rel="index">
-                    <span itemprop="name">Portfolio_Management</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Portfolio-Management/Risk-Management/" itemprop="url" rel="index">
-                    <span itemprop="name">Risk_Management</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/25/value-at-risk-one/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/25/value-at-risk-one/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Value at Risk (VaR) is widely used by financial institutions to measure market risks or potential investment losses. It tells the maximum possible loss for a given portfolio over a certain time horizon, with a certain confidence level $\alpha$, or</p>
-<p>$$<br>Pr(Loss \le -VaR)=1-\alpha<br>\tag{1.1}<br>$$</p>
-<p>There are three approaches to calculate VaR, that is, historical simulation, variance-covariance, and Monte Carlo simulation.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/25/value-at-risk-one/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2017/12/20/portfolio-management-one/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Letian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Letian Wang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/20/portfolio-management-one/" itemprop="url">Portfolio Management One -- Optimization Basics</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-20T17:00:00-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-20T22:45:00-05:00">
                 2017-12-20
               </time>
             
@@ -1319,8 +1653,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Portfolio-Management/" itemprop="url" rel="index">
-                    <span itemprop="name">Portfolio_Management</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
 
@@ -1330,8 +1664,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Portfolio-Management/Asset-Management/" itemprop="url" rel="index">
-                    <span itemprop="name">Asset_Management</span>
+                  <a href="/categories/Machine-Learning/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
 
@@ -1348,9 +1682,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/20/portfolio-management-one/#comments" itemprop="discussionUrl">
+                <a href="/2017/12/20/classical-linear-regression/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/20/portfolio-management-one/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/12/20/classical-linear-regression/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1379,11 +1713,183 @@
 
       
         
-          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Modern Portfolio Theory (MPT) studies the tradeoff between return and risk. The risk of a portfolio is determined by not only the variance but also the correlations among assets. For a given risk, a rational investor would prefer an allocation with a higher expected returns; On the other hand, for a given return, he or she would prefer the portfolio with a lower risk level. This is a typical dual optimization problem. </p>
-<p>This post examines the classic mean-variance portfolio optimization from computational mathematics’ perspective, with mathematical formulas and programming codes. We will use real world stock data from Quandl.</p>
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://en.wikipedia.org/wiki/Linear_regression" target="_blank" rel="noopener">Linear Regression</a> is the most frequently used statistical and machine learning technique. It tries to put a straight line between feature variables $X$ and label variable $y$ that best fits the dataset. In mathematical term, it can be expressed as</p>
+<p>$$<br>y=X\beta+\epsilon  \tag{1.1}<br>$$</p>
+<p>where $\beta$ is the parameter vector that includes the constant intercept term and exposure coefficients to each feature variable $x\in X$.</p>
+<p><a href="https://en.wikipedia.org/wiki/Ordinary_least_squares" target="_blank" rel="noopener">Least Square (OLS)</a> provides a closed-form estimation of coefficient $\beta$ called <a href="https://en.wikipedia.org/wiki/Linear_least_squares#Derivation_of_the_normal_equations" target="_blank" rel="noopener">normal equation</a> given as follows:</p>
+<p>$$<br>\hat{\beta} = (X^TX)^{-1}X^Ty  \tag{1.2}<br>$$</p>
+<p>In the case of linear regression, it is also <a href="https://en.wikipedia.org/wiki/Maximum_likelihood_estimation" target="_blank" rel="noopener">Maximinum Likelihood Estimation (MLE)</a></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/20/portfolio-management-one/#more" rel="contents">
+            <a class="btn" href="/2017/12/20/classical-linear-regression/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2017/12/03/cloud-service-three/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Letian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Letian Wang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/03/cloud-service-three/" itemprop="url">Cloud Service 03 -- Apache Spark</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-03T22:10:00-05:00">
+                2017-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/Big-Data/" itemprop="url" rel="index">
+                    <span itemprop="name">Big Data</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/03/cloud-service-three/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/03/cloud-service-three/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This is the third post of Hadoop series. In this post, we will install <a href="https://spark.apache.org/" target="_blank" rel="noopener">Apache Spark</a> on the hadoop cluster we created in the previous post. This is relatively short post, after all we have done all the heavy lifting in the previous post.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/03/cloud-service-three/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1424,6 +1930,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1471,7 +1981,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1482,7 +1992,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1493,7 +2003,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

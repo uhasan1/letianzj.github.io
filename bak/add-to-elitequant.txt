@@ -1,0 +1,32 @@
+https://quantivity.wordpress.com/
+http://epchan.blogspot.com/
+https://quantpedia.com/
+http://etfhq.com/blog/
+https://quantocracy.com/
+https://qoppac.blogspot.com/
+
+data
+https://www.globalfinancialdata.com/
+http://investexcel.net/financial-web-services-kb/
+https://www.premiumdata.net/
+https://www.iqfeed.net/
+https://quantquote.com/
+http://www.histdata.com/
+
+forums
+http://www.nuclearphynance.com/
+https://www.elitetrader.com/et/
+https://www.wilmott.com/
+
+https://seekingalpha.com/
+
+trading system
+- http://www.deltixlab.com/
+- https://www.quanthouse.com/
+https://qoppac.blogspot.com/p/pysystemtrade.html
+https://www.quantstart.com/articles/backtesting-systematic-trading-strategies-in-python-considerations-and-open-source-frameworks
+
+https://github.com/Avik-Jain/100-Days-Of-ML-Code
+http://aaaquants.com/category/blog/
+http://web.archive.org/web/20140612041028/http://drtomstarke.com/index.php/variance-ratio-test
+https://github.com/bskapital/AlgoRepo/tree/master/EChanBook2
