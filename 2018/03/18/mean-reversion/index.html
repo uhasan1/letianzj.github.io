@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Quantitative Trading,Systematic Investment," />
+  <meta name="keywords" content="Systematic Investment,Quantitative Trading," />
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="IntroductionMean reversion processes are widely observed in finance. As opposed to trend following, it assumes that the process has a tendency to revert to its average level over time. This average le">
-<meta name="keywords" content="Quantitative Trading,Systematic Investment">
+<meta name="keywords" content="Systematic Investment,Quantitative Trading">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mean Reversion">
 <meta property="og:url" content="http://letianzj.github.io/2018/03/18/mean-reversion/index.html">
@@ -88,7 +88,8 @@
 <meta property="og:description" content="IntroductionMean reversion processes are widely observed in finance. As opposed to trend following, it assumes that the process has a tendency to revert to its average level over time. This average le">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://letianzj.github.io/2018/03/18/mean-reversion/usdcad.png">
-<meta property="og:updated_time" content="2018-09-25T03:56:51.922Z">
+<meta property="og:image" content="http://letianzj.github.io/2018/03/18/mean-reversion/simple_linear_scaling.png">
+<meta property="og:updated_time" content="2018-09-28T15:35:51.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mean Reversion">
 <meta name="twitter:description" content="IntroductionMean reversion processes are widely observed in finance. As opposed to trend following, it assumes that the process has a tendency to revert to its average level over time. This average le">
@@ -359,6 +360,7 @@
         <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://en.wikipedia.org/wiki/Mean_reversion_(finance)" target="_blank" rel="noopener">Mean reversion</a> processes are widely observed in finance. As opposed to <a href="https://en.wikipedia.org/wiki/Trend_following" target="_blank" rel="noopener">trend following</a>, it assumes that the process has a tendency to revert to its average level over time. This average level is usually determined by physical or economical forces such as long term supply and demand. Prices might deviate from that long term mean due to sentimental or short-term disturbances on the market but eventually will revert back to its intrinsic value.</p>
 <p>A continuous mean-reverting time series can be represented by an <a href="https://en.wikipedia.org/wiki/Ornstein%E2%80%93Uhlenbeck_process" target="_blank" rel="noopener">Ornstein-Uhlenbeck</a> process or <a href="https://en.wikipedia.org/wiki/Vasicek_model" target="_blank" rel="noopener">Vasicek model</a> in interest rate field, which is a special case of <a href="https://en.wikipedia.org/wiki/Hull%E2%80%93White_model" target="_blank" rel="noopener">Hull-White model</a> with constant volatility. It is also the continuous-time analogue of the discrete-time <a href="https://en.wikipedia.org/wiki/Autoregressive_model" target="_blank" rel="noopener">AR(1)<br>process</a>. I relegate the mathematical details to appendix.</p>
 <p>To calibrate the OU process, there are generally two approaches based on formula (A9), i.e., the Least square and Maximum Likelihood Estimation. <a href="https://commoditymodels.files.wordpress.com/2010/02/estimating-the-parameters-of-a-mean-reverting-ornstein-uhlenbeck-process1.pdf" target="_blank" rel="noopener">This document</a> gives a good summary and comparison of results.</p>
+<p>The backtest codes in this post is located in the <a href="https://github.com/EliteQuant/EliteQuant_Python/tree/master/source/strategy/mystrategy" target="_blank" rel="noopener">strategy folder</a>. All other codes can be found in the <a href="https://github.com/EliteQuant/EliteQuant_Python/tree/master/research" target="_blank" rel="noopener">research folder</a>.</p>
 <a id="more"></a>
 <h2 id="Statistical-Testing"><a href="#Statistical-Testing" class="headerlink" title="Statistical Testing"></a>Statistical Testing</h2><p>Comparing to backtesting, [1] made a valid point about the importance of statistical testing in that it consists of full information of the time series instead of just a number of completed trades dependent on chosen parameters. In addition, we can be more confident that a profitable strategy is not just based on luck if it passes statistical tests.</p>
 <h3 id="Augmented-Dickey-Fuller-Test"><a href="#Augmented-Dickey-Fuller-Test" class="headerlink" title="Augmented Dickey-Fuller Test"></a>Augmented Dickey-Fuller Test</h3><p><a href="https://en.wikipedia.org/wiki/Augmented_Dickey%E2%80%93Fuller_test" target="_blank" rel="noopener">Augmented Dickey–Fuller test (ADF)</a> detects if a time series contains <a href="https://en.wikipedia.org/wiki/Unit_root" target="_blank" rel="noopener">unit root</a>. Technically the name of unit root comes from the fact that the autoregressive polynomial has a root on the unit circle but basically it implies nonstationary.</p>
@@ -369,7 +371,7 @@
 <p>Based on the results, we cannot reject the null hypothesis of $\beta==1$. In other words, USDCAD, containing unit root, is not mean reverting during this period. In fact, the figure above suggests an upward trend for USD, as Loonie lost about 30%.</p>
 <h3 id="Hurst-Exponent"><a href="#Hurst-Exponent" class="headerlink" title="Hurst Exponent"></a>Hurst Exponent</h3><p>Another way of looking at stationarity is to compare it with <a href="https://en.wikipedia.org/wiki/Geometric_Brownian_motion" target="_blank" rel="noopener">Geometric Brownian Motion (GBM)</a>. A stationary price series is meant to diffuse more slowly than GBM. This is the theory behind <a href="https://en.wikipedia.org/wiki/Hurst_exponent" target="_blank" rel="noopener">Hurst exponent</a> test. Considering GBM, the <a href="https://en.wikipedia.org/wiki/Quadratic_variation" target="_blank" rel="noopener">quadratic variation</a> of its log value exhibits</p>
 <p>$$<br>&lt;|ln(S_{t+\tau})-ln(S_t)|^2&gt;=\sigma^2\tau \sim \tau = \tau^{2H}<br>\tag{2.1}<br>$$</p>
-<p>where $\sim$ means proportional and $H$ is Hurst Exponent. Apparently to make the last equation in (2.1) hold, H=0.5. Therefore we have the following rule for a price series,</p>
+<p>where $\sim$ means proportional and $H$ is Hurst Exponent. Apparently to make the last equation in (2.1) hold, H must be 0.5. Therefore we have the following rule for a price series,</p>
 <ul>
 <li>$H&lt;0.5$: mean reverting</li>
 <li>$H=0.5$: geometric random walk</li>
@@ -395,7 +397,9 @@
 </ul>
 <p>The following code is self-explanatory. It finds rolling z-score and then trades negatively proportional to it.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_bar</span><span class="params">(self, bar_event)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># retrieve price history up to now</span></span><br><span class="line">    hist_data_to_date = self._data_board.get_hist_price(self.symbols[<span class="number">0</span>], bar_event.bar_end_time())</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> hist_data_to_date.shape[<span class="number">0</span>] &lt; self.lookback_window:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    rolling_avg = np.average(hist_data_to_date.iloc[-self.lookback_window:][<span class="string">'Price'</span>])</span><br><span class="line">    rolling_sd = np.std(hist_data_to_date.iloc[-self.lookback_window:][<span class="string">'Price'</span>])</span><br><span class="line">    rolling_z_score = (hist_data_to_date.iloc[<span class="number">-1</span>] - rolling_avg) / rolling_sd</span><br><span class="line">    rolling_z_score = rolling_z_score.values[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># size is negatively proportional to z-score</span></span><br><span class="line">    target_size = <span class="number">-1</span> * int(rolling_z_score * <span class="number">10000</span>)  <span class="comment"># integer lots only</span></span><br><span class="line">    lots_to_trade = target_size - self._current_size</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> lots_to_trade != <span class="number">0</span>:</span><br><span class="line">        o = OrderEvent()</span><br><span class="line">        o.full_symbol = self.symbols[<span class="number">0</span>]</span><br><span class="line">        o.order_type = OrderType.MARKET</span><br><span class="line">        o.order_size = lots_to_trade</span><br><span class="line">        print(<span class="string">'&#123;&#125; traded &#123;&#125; on z-score &#123;&#125;'</span>.format(bar_event.bar_end_time(), lots_to_trade, rolling_z_score))</span><br><span class="line">        self.place_order(o)</span><br><span class="line"></span><br><span class="line">    self._current_size = target_size</span><br></pre></td></tr></table></figure>
-<p>The full code can be found in <a href="">github repo</a>.</p>
+<p><img src="simple_linear_scaling.png" align="left" width="100%" height="100%"></p>
+<p>The benchmark is USDCAD exchange rate. It seems that when USD trending up, mean reversion strategies don’t do well in their primitive settings. In the future we’ll use Hidden Markov Chain to improve the performance by detecting if the market is in trending or mena-reverting phase.</p>
+<p>The full code can be found in <a href="https://github.com/EliteQuant/EliteQuant_Python/blob/master/source/strategy/mystrategy/moving_average_cross_strategy.py" target="_blank" rel="noopener">github repo</a>.</p>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>In sum, this post considers one single time series. Next post we will look at two time series or pairs trading.</p>
 <p><strong>Reference</strong></p>
 <ul>
@@ -459,9 +463,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Quantitative-Trading/" rel="tag"># Quantitative Trading</a>
-          
             <a href="/tags/Systematic-Investment/" rel="tag"># Systematic Investment</a>
+          
+            <a href="/tags/Quantitative-Trading/" rel="tag"># Quantitative Trading</a>
           
         </div>
       
@@ -577,7 +581,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -588,7 +592,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -599,7 +603,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

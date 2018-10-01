@@ -242,6 +242,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2018/03/30/kalman-filter-pairs-trading/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Letian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Letian Wang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/30/kalman-filter-pairs-trading/" itemprop="url">Kalman Filter and Pairs Trading</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-30T19:25:00-04:00">
+                2018-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Systematic-Investment/" itemprop="url" rel="index">
+                    <span itemprop="name">Systematic Investment</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Systematic-Investment/Quantitative-Trading/" itemprop="url" rel="index">
+                    <span itemprop="name">Quantitative Trading</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/30/kalman-filter-pairs-trading/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/30/kalman-filter-pairs-trading/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In <a href="/2018/01/07/kalman-filter-linear-regression/" title="previous post">previous post</a> we have seen Kalman Filter and its ability to online train a linear regression model. In <a href="/2018/03/24/cointegration-pairs-trading/" title="last post">last post</a> we have also seen the idea of cointegration and pairs trading. As pointed out at the end of last post, one way to avoid <a href="https://www.investopedia.com/terms/l/lookaheadbias.asp" target="_blank" rel="noopener">look-ahead bias</a> and gain <a href="https://en.wikipedia.org/wiki/Walk_forward_optimization" target="_blank" rel="noopener">walk forward analysis</a> is through Bayesian online training mechanism such as Kalman Filter. Today we’ll apply this idea to pairs trading.</p>
+<p>As usual, the backtest codes in this post is located in the <a href="https://github.com/EliteQuant/EliteQuant_Python/tree/master/source/strategy/mystrategy" target="_blank" rel="noopener">strategy folder</a>. All other codes can be found in the <a href="https://github.com/EliteQuant/EliteQuant_Python/tree/master/research" target="_blank" rel="noopener">research folder</a>.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/30/kalman-filter-pairs-trading/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2018/03/24/cointegration-pairs-trading/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -357,6 +526,7 @@
       
         
           <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In <a href="/2018/03/18/mean-reversion/" title="last post">last post</a> we examined the mean reversion statistical test and traded on a single name time series. Often times single stock price is not mean-reverting but we are able to artificially create a portfolio of stocks that is mean-reverting. If the portfolio has only two stocks, it is known as <a href="https://en.wikipedia.org/wiki/Pairs_trade" target="_blank" rel="noopener">pairs trading</a>, a special form of <a href="https://en.wikipedia.org/wiki/Statistical_arbitrage" target="_blank" rel="noopener">statistical arbitrage</a>. By combining two <a href="https://en.wikipedia.org/wiki/Cointegration" target="_blank" rel="noopener">cointegrated</a> stocks, we can construct a spread that is mean-reverting, even when these two stocks themselves are not. Please refer to the appendix if you want to check out cointegration first.</p>
+<p>The backtest codes in this post is located in the <a href="https://github.com/EliteQuant/EliteQuant_Python/tree/master/source/strategy/mystrategy" target="_blank" rel="noopener">strategy folder</a>. All other codes can be found in the <a href="https://github.com/EliteQuant/EliteQuant_Python/tree/master/research" target="_blank" rel="noopener">research folder</a>.</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/24/cointegration-pairs-trading/#more" rel="contents">
@@ -527,6 +697,7 @@
           <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://en.wikipedia.org/wiki/Mean_reversion_(finance)" target="_blank" rel="noopener">Mean reversion</a> processes are widely observed in finance. As opposed to <a href="https://en.wikipedia.org/wiki/Trend_following" target="_blank" rel="noopener">trend following</a>, it assumes that the process has a tendency to revert to its average level over time. This average level is usually determined by physical or economical forces such as long term supply and demand. Prices might deviate from that long term mean due to sentimental or short-term disturbances on the market but eventually will revert back to its intrinsic value.</p>
 <p>A continuous mean-reverting time series can be represented by an <a href="https://en.wikipedia.org/wiki/Ornstein%E2%80%93Uhlenbeck_process" target="_blank" rel="noopener">Ornstein-Uhlenbeck</a> process or <a href="https://en.wikipedia.org/wiki/Vasicek_model" target="_blank" rel="noopener">Vasicek model</a> in interest rate field, which is a special case of <a href="https://en.wikipedia.org/wiki/Hull%E2%80%93White_model" target="_blank" rel="noopener">Hull-White model</a> with constant volatility. It is also the continuous-time analogue of the discrete-time <a href="https://en.wikipedia.org/wiki/Autoregressive_model" target="_blank" rel="noopener">AR(1)<br>process</a>. I relegate the mathematical details to appendix.</p>
 <p>To calibrate the OU process, there are generally two approaches based on formula (A9), i.e., the Least square and Maximum Likelihood Estimation. <a href="https://commoditymodels.files.wordpress.com/2010/02/estimating-the-parameters-of-a-mean-reverting-ornstein-uhlenbeck-process1.pdf" target="_blank" rel="noopener">This document</a> gives a good summary and comparison of results.</p>
+<p>The backtest codes in this post is located in the <a href="https://github.com/EliteQuant/EliteQuant_Python/tree/master/source/strategy/mystrategy" target="_blank" rel="noopener">strategy folder</a>. All other codes can be found in the <a href="https://github.com/EliteQuant/EliteQuant_Python/tree/master/research" target="_blank" rel="noopener">research folder</a>.</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/18/mean-reversion/#more" rel="contents">
@@ -695,8 +866,8 @@
       
         
           <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://github.com/EliteQuant/EliteQuant_Excel" target="_blank" rel="noopener">EliteQuant Excel</a> is an open source quantitative modeling solution in Excel. Excel is one of the most popular tools in the business world, across both sell side and buy side. EliteQuant Excel is an Excel Add-in that enables you to create quantitative financial models in Excel spreadsheet, in the same way how financial professionals such as traders, quants, and portfolio managers do their daily to daily work.</p>
-<p>You are able to create pricing and simulation tools for products across all asset classes such as interest rate or FX, and from plain vanilla to exotic be-spoken instruments. You are also able to backtest and live trade from Excel, with the so-called RTD, or real-time data support.</p>
-<p>This post will discuss the technical stack of EliteQuant Excel from developer’s perspective.</p>
+<p>You are able to create pricing and simulation tools for products across all asset classes such as interest rate and FX, and from plain vanilla to exotic be-spoken instruments. You are also able to backtest and live trade from Excel, with the so-called RTD, or real-time data support.</p>
+<p>This post will discuss the technical stack used by EliteQuant Excel from developer’s perspective.</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/02/11/elitequant-excel/#more" rel="contents">
@@ -864,7 +1035,7 @@
 
       
         
-          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://github.com/EliteQuant" target="_blank" rel="noopener">Elitequant</a> is an open source low latency event driven trading system. This post goes over the structure of its historical backtesting module. I’ll use <a href="https://github.com/EliteQuant/EliteQuant_Python" target="_blank" rel="noopener">Elitequant Python</a> as example but the structure is shared literally with other lanaguages such as <a href="https://github.com/EliteQuant/EliteQuant_R" target="_blank" rel="noopener">Elitequant R</a> and <a href="https://github.com/EliteQuant/EliteQuant_Matlab" target="_blank" rel="noopener">Elitequant Matlab</a>. </p>
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://github.com/EliteQuant" target="_blank" rel="noopener">Elitequant</a> is an open source low latency event driven trading system. This post goes over the structure of its historical backtesting module. I’ll use <a href="https://github.com/EliteQuant/EliteQuant_Python" target="_blank" rel="noopener">Elitequant Python</a> as example but the code structure is shared literally with other lanaguages such as <a href="https://github.com/EliteQuant/EliteQuant_R" target="_blank" rel="noopener">Elitequant R</a> and <a href="https://github.com/EliteQuant/EliteQuant_Matlab" target="_blank" rel="noopener">Elitequant Matlab</a>.</p>
 <p>This post serves as preparation stage for future works in backtesting quantitative systematic strategies. Nevertheless, you can safely skip it without jeopardizing the ability of following future posts if you have already your own backtesting system. Even if you haven’t yet, there are other backtest platforms available such as <a href="https://www.quantopian.com/" target="_blank" rel="noopener">Quantopian</a> in Python, <a href="https://www.quantconnect.com/" target="_blank" rel="noopener">QuantConnect</a> in C#, or <a href="https://www.rdocumentation.org/packages/quantstrat/versions/0.14.6" target="_blank" rel="noopener">QuantStrat</a> in R. But they all share one feature in common – event driven mechanism.</p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1759,174 +1930,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/2017/12/03/cloud-service-three/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Letian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Letian Wang's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/03/cloud-service-three/" itemprop="url">Cloud Service 03 -- Apache Spark</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-03T22:10:00-05:00">
-                2017-12-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Big-Data/" itemprop="url" rel="index">
-                    <span itemprop="name">Big Data</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/03/cloud-service-three/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/03/cloud-service-three/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This is the third post of Hadoop series. In this post, we will install <a href="https://spark.apache.org/" target="_blank" rel="noopener">Apache Spark</a> on the hadoop cluster we created in the previous post. This is relatively short post, after all we have done all the heavy lifting in the previous post.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/03/cloud-service-three/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1981,7 +1984,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1992,7 +1995,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2003,7 +2006,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

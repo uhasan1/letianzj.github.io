@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Quantitative Trading,Systematic Investment," />
+  <meta name="keywords" content="Systematic Investment,Quantitative Trading," />
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="IntroductionIn last post we examined the mean reversion statistical test and traded on a single name time series. Often times single stock price is not mean-reverting but we are able to artificially c">
-<meta name="keywords" content="Quantitative Trading,Systematic Investment">
+<meta name="keywords" content="Systematic Investment,Quantitative Trading">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cointegration and Pairs Trading">
 <meta property="og:url" content="http://letianzj.github.io/2018/03/24/cointegration-pairs-trading/index.html">
@@ -88,7 +88,8 @@
 <meta property="og:description" content="IntroductionIn last post we examined the mean reversion statistical test and traded on a single name time series. Often times single stock price is not mean-reverting but we are able to artificially c">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://letianzj.github.io/2018/03/24/cointegration-pairs-trading/ewa_ewc.png">
-<meta property="og:updated_time" content="2018-09-27T02:39:58.258Z">
+<meta property="og:image" content="http://letianzj.github.io/2018/03/24/cointegration-pairs-trading/backtest_results.png">
+<meta property="og:updated_time" content="2018-09-29T19:29:45.589Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cointegration and Pairs Trading">
 <meta name="twitter:description" content="IntroductionIn last post we examined the mean reversion statistical test and traded on a single name time series. Often times single stock price is not mean-reverting but we are able to artificially c">
@@ -357,6 +358,7 @@
 
       
         <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In <a href="/2018/03/18/mean-reversion/" title="last post">last post</a> we examined the mean reversion statistical test and traded on a single name time series. Often times single stock price is not mean-reverting but we are able to artificially create a portfolio of stocks that is mean-reverting. If the portfolio has only two stocks, it is known as <a href="https://en.wikipedia.org/wiki/Pairs_trade" target="_blank" rel="noopener">pairs trading</a>, a special form of <a href="https://en.wikipedia.org/wiki/Statistical_arbitrage" target="_blank" rel="noopener">statistical arbitrage</a>. By combining two <a href="https://en.wikipedia.org/wiki/Cointegration" target="_blank" rel="noopener">cointegrated</a> stocks, we can construct a spread that is mean-reverting, even when these two stocks themselves are not. Please refer to the appendix if you want to check out cointegration first.</p>
+<p>The backtest codes in this post is located in the <a href="https://github.com/EliteQuant/EliteQuant_Python/tree/master/source/strategy/mystrategy" target="_blank" rel="noopener">strategy folder</a>. All other codes can be found in the <a href="https://github.com/EliteQuant/EliteQuant_Python/tree/master/research" target="_blank" rel="noopener">research folder</a>.</p>
 <a id="more"></a>
 <h2 id="Statistical-Testing"><a href="#Statistical-Testing" class="headerlink" title="Statistical Testing"></a>Statistical Testing</h2><p>Let’s look at Ernie Chan’s ([2]) EWA and EWC trade. The reasoning behind this trade is that both Canada and Australia’s GDP rely heavily on natural resources, therefore their stock market performance are expected to be correlated through natural resources’ prices.</p>
 <p><img src="ewa_ewc.png" align="center" width="100%" height="100%"></p>
@@ -367,10 +369,10 @@
 <p>One undesired feature of the ordinary least square is that it is asymmetric, by switching the dependent and independent variables it will result in a differnet hedging ratio. A common solution is to do both sides, and choose the one with most negative / statistically significant test-statistic.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lm_model = LinearRegression(copy_X=<span class="keyword">True</span>, fit_intercept=<span class="keyword">True</span>, normalize=<span class="keyword">False</span>)</span><br><span class="line">lm_model.fit(data[<span class="string">'EWC US Equity'</span>].values.reshape(<span class="number">-1</span>,<span class="number">1</span>), data[<span class="string">'EWA US Equity'</span>].values)        <span class="comment"># fit() expects 2D array</span></span><br><span class="line">print(<span class="string">'pamameters: %.7f, %.7f'</span> %(lm_model.intercept_, lm_model.coef_))</span><br><span class="line">yfit = lm_model.coef_ * data[<span class="string">'EWC US Equity'</span>] + lm_model.intercept_</span><br><span class="line">y_residual = data[<span class="string">'EWA US Equity'</span>] - yfit</span><br><span class="line">ts.adfuller(y_residual, <span class="number">1</span>)           <span class="comment"># lag = 1</span></span><br><span class="line"><span class="comment"># statistic = -3.797221868633519</span></span><br></pre></td></tr></table></figure>
 <p>Because the second regression has test-statistic of $-3.79&lt;-3.667$, we use EWC as independent variable and EWA as dependent variable. The coefficient is $0.8328531$.</p>
-<h3 id="Johansen-Test"><a href="#Johansen-Test" class="headerlink" title="Johansen Test"></a>Johansen Test</h3><p>It’s understandable that if we do the test in two steps like in CADF, error accumulates between steps. <a href="https://en.wikipedia.org/wiki/Johansen_test)" target="_blank" rel="noopener">Johansen test</a> overcomes this by allowing us find hedge ratio and test cointegration at the same time. Another advantage of Johansen test is that it can be extended to more than two stocks. </p>
+<h3 id="Johansen-Test"><a href="#Johansen-Test" class="headerlink" title="Johansen Test"></a>Johansen Test</h3><p>It’s understandable that if we do the test in two steps like in CADF, error accumulates between steps. <a href="https://en.wikipedia.org/wiki/Johansen_test" target="_blank" rel="noopener">Johansen test</a> overcomes this by allowing us find hedge ratio and test cointegration at the same time. Another advantage of Johansen test is that it can be extended to more than two stocks. </p>
 <p>Johansen test checks the rank $r$ of $\Pi$ in equation (A6). It gives statistical significance for $r=0,1,2,…,n-1$ sequentially, where $n$ is the full rank. The null hypothesis of $r=0$ means no cointegration relationship; $r \leq 1$ means up to one cointegration relationship, and so on. As a by product, the the eigenvectors of $\Pi$ serves as hedge ratios for the stock portfolio.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> statsmodels.tsa.vector_ar.vecm <span class="keyword">import</span> coint_johansen</span><br><span class="line"></span><br><span class="line">jh_results = coint_johansen(data, <span class="number">0</span>, <span class="number">1</span>)             <span class="comment"># 0 - constant term; 1 - log 1</span></span><br><span class="line">print(jh_results.lr1)                           <span class="comment"># dim = (n,) Trace statistic</span></span><br><span class="line">print(jh_results.cvt)                           <span class="comment"># dim = (n,3) critical value table (90%, 95%, 99%)</span></span><br><span class="line">print(jh_results.evec)                          <span class="comment"># dim = (n, n), columnwise eigen-vectors</span></span><br><span class="line">v1 = jh_results.evec[:, <span class="number">0</span>]</span><br><span class="line">v2 = jh_results.evec[:, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># [21.44412674  3.64194243]                 # trace statistic</span></span><br><span class="line"><span class="comment"># [[13.4294 15.4943 19.9349]                # r = 0 critical values</span></span><br><span class="line"><span class="comment">#  [ 2.7055  3.8415  6.6349]]               # r &lt;= 1 critical values</span></span><br><span class="line"><span class="comment"># [[ 0.53474958  0.02398649]                # eigenvectors</span></span><br><span class="line"><span class="comment">#  [-0.45169106  0.12036402]]</span></span><br></pre></td></tr></table></figure>
-<p>From the test results above, we will reject both null hypothesis of $r=0$ and $r=1$. Therefore $r=2$ or it claims none of the two stocks is stationary but we can use the two to form one. The first eigenvector can be normalized to $-0.45169/0.534749=-0.84467$, which is pretty close to $0.83285314$ from CADF section.</p>
+<p>From the test results above, we will reject null hypothesis of $r=0$ easily. We can reject $r\leq1$ up to 90% confidence level. There’s another 10% of chance that $r$ is 1 or based on (A6), they are cointegrated. It seems that Johansen test is more strict than the CDAF test regarding to accepting pairs. The first eigenvector can be normalized to $-0.45169/0.534749=-0.84467$, which is pretty close to $0.83285314$ from CADF section.</p>
 <h2 id="Pairs-Trading"><a href="#Pairs-Trading" class="headerlink" title="Pairs Trading"></a>Pairs Trading</h2><p>It is time to backtest the EWA-EWC pairs trading on the <a href="https://en.wikipedia.org/wiki/Bollinger_Bands" target="_blank" rel="noopener">Bollinger-bands strategy</a>. The strategy is very simple.</p>
 <ul>
 <li>Calculate the Bollinger bands as rolling moving average $\pm$ scaler $\times$ rolling standard deviation.</li>
@@ -378,8 +380,9 @@
 <li>If the spread crosses the center line, flat the positions.</li>
 </ul>
 <p>In order to avoid the <a href="https://www.investopedia.com/terms/l/lookaheadbias.asp" target="_blank" rel="noopener">look-ahead bias</a> caused by using whole dataset for regression, we use a rolling window and re-estimate the linear regression at every step. This is also known as <a href="https://en.wikipedia.org/wiki/Walk_forward_optimization" target="_blank" rel="noopener">walk forward analysis</a>. Another approach is to use online regression mechanism such as <a href="https://en.wikipedia.org/wiki/Kalman_filter" target="_blank" rel="noopener">Kalman filter</a>, which will be covered in the next post.</p>
-<p>The trading logic is posted below. Full code can be found <a href="">here on github</a>.</p>
+<p>The trading logic is posted below. Full code can be found <a href="https://github.com/EliteQuant/EliteQuant_Python/blob/master/source/strategy/mystrategy/mean_reversion_spread_strategy.py" target="_blank" rel="noopener">here on github</a>.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (spread[<span class="number">-1</span>] &gt; bollinger_ub) <span class="keyword">and</span> (self.current_ewa_size &gt;= <span class="number">0</span>):</span><br><span class="line">	<span class="keyword">print</span> (<span class="string">'Hit upper band, short spread.'</span>)</span><br><span class="line">	o = OrderEvent()</span><br><span class="line">	o.full_symbol = self.symbols[<span class="number">0</span>]</span><br><span class="line">	o.order_type = OrderType.MARKET</span><br><span class="line">	o.order_size = int(<span class="number">-1000</span>*coeff) - self.current_ewa_size</span><br><span class="line">	self.place_order(o)</span><br><span class="line">	self.current_ewa_size = int(<span class="number">-1000</span>*coeff)</span><br><span class="line"></span><br><span class="line">	o = OrderEvent()</span><br><span class="line">	o.full_symbol = self.symbols[<span class="number">1</span>]</span><br><span class="line">	o.order_type = OrderType.MARKET</span><br><span class="line">	o.order_size = <span class="number">1000</span> - self.current_ewc_size</span><br><span class="line">	self.place_order(o)</span><br><span class="line">	self.current_ewc_size = <span class="number">1000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> (spread[<span class="number">-1</span>] &lt; bollinger_lb) <span class="keyword">and</span> (self.current_ewa_size &lt;= <span class="number">0</span>):</span><br><span class="line">	print(<span class="string">'Hit lower band, long spread.'</span>)</span><br><span class="line">	o = OrderEvent()</span><br><span class="line">	o.full_symbol = self.symbols[<span class="number">0</span>]</span><br><span class="line">	o.order_type = OrderType.MARKET</span><br><span class="line">	o.order_size = int(<span class="number">1000</span> * coeff) - self.current_ewa_size</span><br><span class="line">	self.place_order(o)</span><br><span class="line">	self.current_ewa_size = int(<span class="number">1000</span> * coeff)</span><br><span class="line"></span><br><span class="line">	o = OrderEvent()</span><br><span class="line">	o.full_symbol = self.symbols[<span class="number">1</span>]</span><br><span class="line">	o.order_type = OrderType.MARKET</span><br><span class="line">	o.order_size = <span class="number">-1000</span> - self.current_ewc_size</span><br><span class="line">	self.place_order(o)</span><br><span class="line">	self.current_ewc_size = <span class="number">-1000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> (spread[<span class="number">-1</span>] &lt; <span class="number">0</span>) <span class="keyword">and</span> (spread[<span class="number">-1</span>] &gt; bollinger_lb) <span class="keyword">and</span> (self.current_ewa_size &lt; <span class="number">0</span>):</span><br><span class="line">	print(<span class="string">'spread crosses below average.cover short spread'</span>)</span><br><span class="line">	o = OrderEvent()</span><br><span class="line">	o.full_symbol = self.symbols[<span class="number">0</span>]</span><br><span class="line">	o.order_type = OrderType.MARKET</span><br><span class="line">	o.order_size =  - self.current_ewa_size</span><br><span class="line">	self.place_order(o)</span><br><span class="line">	self.current_ewa_size = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	o = OrderEvent()</span><br><span class="line">	o.full_symbol = self.symbols[<span class="number">1</span>]</span><br><span class="line">	o.order_type = OrderType.MARKET</span><br><span class="line">	o.order_size =  - self.current_ewc_size</span><br><span class="line">	self.place_order(o)</span><br><span class="line">	self.current_ewc_size = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> (spread[<span class="number">-1</span>] &gt; <span class="number">0</span>) <span class="keyword">and</span> (spread[<span class="number">-1</span>] &lt; bollinger_ub) <span class="keyword">and</span> (self.current_ewa_size &gt; <span class="number">0</span>):</span><br><span class="line">	print(<span class="string">'spread crosses above average.cover long spread'</span>)</span><br><span class="line">	o = OrderEvent()</span><br><span class="line">	o.full_symbol = self.symbols[<span class="number">0</span>]</span><br><span class="line">	o.order_type = OrderType.MARKET</span><br><span class="line">	o.order_size =  - self.current_ewa_size</span><br><span class="line">	self.place_order(o)</span><br><span class="line">	self.current_ewa_size = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	o = OrderEvent()</span><br><span class="line">	o.full_symbol = self.symbols[<span class="number">1</span>]</span><br><span class="line">	o.order_type = OrderType.MARKET</span><br><span class="line">	o.order_size =  - self.current_ewc_size</span><br><span class="line">	self.place_order(o)</span><br><span class="line">	self.current_ewc_size = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p><img src="backtest_results.png" align="center" width="100%" height="100%"></p>
 <p><strong>Reference</strong></p>
 <ul>
 <li>[1] Tsay, Ruey S. Analysis of financial time series. Vol. 543. John Wiley &amp; Sons, 2005.</li>
@@ -441,9 +444,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Quantitative-Trading/" rel="tag"># Quantitative Trading</a>
-          
             <a href="/tags/Systematic-Investment/" rel="tag"># Systematic Investment</a>
+          
+            <a href="/tags/Quantitative-Trading/" rel="tag"># Quantitative Trading</a>
           
         </div>
       
@@ -465,6 +468,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/30/kalman-filter-pairs-trading/" rel="prev" title="Kalman Filter and Pairs Trading">
+                Kalman Filter and Pairs Trading <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -555,7 +562,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -566,7 +573,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -577,7 +584,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
