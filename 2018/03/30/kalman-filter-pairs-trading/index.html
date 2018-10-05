@@ -90,7 +90,8 @@
 <meta property="og:image" content="http://letianzj.github.io/2018/03/30/kalman-filter-pairs-trading/time_varying_scatterplot.png">
 <meta property="og:image" content="http://letianzj.github.io/2018/03/30/kalman-filter-pairs-trading/time_varying_parameters.png">
 <meta property="og:image" content="http://letianzj.github.io/2018/03/30/kalman-filter-pairs-trading/time_varying_regression.png">
-<meta property="og:updated_time" content="2018-10-01T19:08:42.863Z">
+<meta property="og:image" content="http://letianzj.github.io/2018/03/30/kalman-filter-pairs-trading/backtest_results.png">
+<meta property="og:updated_time" content="2018-10-05T01:49:39.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kalman Filter and Pairs Trading">
 <meta name="twitter:description" content="IntroductionIn previous post we have seen Kalman Filter and its ability to online train a linear regression model. In last post we have also seen the idea of cointegration and pairs trading. As pointe">
@@ -383,13 +384,15 @@
 <p>There is one thing needs to be pointed out in order to better understand the code, that is, <strong>the measurement error given in Pre$(A.5)$ is actually the spread at time k</strong>. To see this, notice that the first item on the right-hand side, $y_k$, is the EWC price, and the second item,</p>
 <p>$$<br>F_k\hat{\theta}_{k|k-1}=a_k+b_k*x_k<br>\tag{3.1}<br>$$</p>
 <p>is the hedge side of EWA.</p>
-<p>By the same logic, <strong>Pre$(A.6)$ is the variance of spread</strong>. In addition, Pre$(A.2)$ assumes the spread/eror term is normally distributed with zero mean and variance of Pre$(A.6)$. Therefore Pre$(A.5)$ and Pre$(A.6)$ provide the moving average and moving standard deviation (as sqaure root of variance) for Bollinger bands. Unfortunately PyKalman package doesn’t return them directly so we have to calculate them manually in the strategy.</p>
-<p>To sum-up, here is the trading logic. Full code can be found <a href="https://github.com/EliteQuant/EliteQuant_Python/blob/master/source/strategy/mystrategy/kalman_filter_pairs_trading_strategy.py" target="_blank" rel="noopener">here on github</a>.</p>
+<p>By the same logic, <strong>Pre$(A.6)$ is the variance of spread</strong>. In addition, Pre$(A.2)$ assumes the spread/eror term is normally distributed with zero mean and variance of Pre$(A.6)$. Therefore Pre$(A.5)$ and Pre$(A.6)$ provide the moving average and moving standard deviation (as sqaure root of variance) for Bollinger bands. </p>
+<p>Unfortunately PyKalman package doesn’t return them directly so we have to calculate them manually in the strategy. Here is the trading logic (also see [1]). Full code can be found <a href="https://github.com/EliteQuant/EliteQuant_Python/blob/master/source/strategy/mystrategy/kalman_filter_pairs_trading_strategy.py" target="_blank" rel="noopener">here on github</a>.</p>
 <ol>
 <li>On each day, observe EWA price $x_t$ and EWC price $y_t$</li>
 <li>Calculate Pre$A.5$ and Pre$A.6$ as current spread and its variance</li>
 <li>Let Bollinger band be $\hat{y}_{k}\pm\delta\sqrt{S_k}$</li>
 </ol>
+<p>The backtest result is shown as follows. It seems the strategy was good until year 2017. </p>
+<p><img src="backtest_results.png" align="center" width="80%" height="80%"></p>
 <p><strong>Reference</strong></p>
 <ul>
 <li>[1] Chan, Ernie. Algorithmic trading: winning strategies and their rationale. Vol. 625. John Wiley &amp; Sons, 2013.</li>
