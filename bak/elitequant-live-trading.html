@@ -252,7 +252,7 @@
         
           <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Elitequant event driven live trading module, serve as future works in backtesting</p>
 <a id="more"></a>
-<h2 id="MCMC-Simple-Linear-Regression"><a href="#MCMC-Simple-Linear-Regression" class="headerlink" title="MCMC Simple Linear Regression"></a>MCMC Simple Linear Regression</h2><p>Back to our simple linear regression example, firstly let’s repeat the Bayesian Theorem from <a href="/bayesian-linear-regression.html" title="last post">last post</a>.</p>
+<h2 id="MCMC-Simple-Linear-Regression"><a href="#MCMC-Simple-Linear-Regression" class="headerlink" title="MCMC Simple Linear Regression"></a>MCMC Simple Linear Regression</h2><p>Back to our simple linear regression example, firstly let’s repeat the Bayesian Theorem from <a href="/2017/12/bayesian-linear-regression/" title="last post">last post</a>.</p>
 <p>$$<br>f(\beta|y,X)=\frac{f(y|\beta,X)f(\beta|X)}{f(y|X)}<br>\tag{2.1}<br>$$</p>
 <p>where $\beta$ is regression parameter; y and X each have 500 observations.</p>
 <p>The distribution of interest is our posterior distribution of $\beta$ denoted as $f(\beta|y,X)$. This time we technically only do one Bayesian iteration (remember we updated our belief 250 times in the last post?) because the purpose is to show how to draw a MCMC sample distribution from the first posterior iteration. We include all the 500 points in the Bayesian so the result is expected to reflect full information dataset and converge to the true value.</p>
