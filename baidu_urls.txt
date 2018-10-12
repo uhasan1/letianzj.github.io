@@ -1,0 +1,3 @@
+http://letianzj.github.io/hidden-markov-chain.html
+http://letianzj.github.io/kalman-filter-pairs-trading.html
+http://letianzj.github.io/cointegration-pairs-trading.html

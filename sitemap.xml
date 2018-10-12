@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://letianzj.github.io/mean-reversion.html</loc>
+    
+    <lastmod>2018-10-12T01:14:25.269Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://letianzj.github.io/bak/github_google/googleaa7b60d3069d75c3.html</loc>
     
     <lastmod>2018-10-12T00:22:18.990Z</lastmod>
@@ -16,112 +23,105 @@
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2018/09/02/hidden-markov-chain/</loc>
+    <loc>http://letianzj.github.io/hidden-markov-chain.html</loc>
     
     <lastmod>2018-10-08T03:02:52.811Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2018/01/07/kalman-filter-linear-regression/</loc>
+    <loc>http://letianzj.github.io/kalman-filter-linear-regression.html</loc>
     
     <lastmod>2018-10-05T04:10:09.062Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2017/12/30/mcmc-linear-regression/</loc>
+    <loc>http://letianzj.github.io/mcmc-linear-regression.html</loc>
     
     <lastmod>2018-10-05T04:04:06.569Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2018/03/30/kalman-filter-pairs-trading/</loc>
+    <loc>http://letianzj.github.io/kalman-filter-pairs-trading.html</loc>
     
     <lastmod>2018-10-05T01:49:39.898Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2018/03/18/mean-reversion/</loc>
-    
-    <lastmod>2018-10-04T10:06:28.165Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://letianzj.github.io/2018/01/28/elitequant-backtesting/</loc>
+    <loc>http://letianzj.github.io/elitequant-backtesting.html</loc>
     
     <lastmod>2018-10-04T10:03:43.924Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2018/03/24/cointegration-pairs-trading/</loc>
+    <loc>http://letianzj.github.io/cointegration-pairs-trading.html</loc>
     
     <lastmod>2018-09-29T19:29:45.589Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2018/02/11/elitequant-excel/</loc>
+    <loc>http://letianzj.github.io/elitequant-excel.html</loc>
     
     <lastmod>2018-09-27T23:07:59.585Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2017/12/20/classical-linear-regression/</loc>
+    <loc>http://letianzj.github.io/classical-linear-regression.html</loc>
     
     <lastmod>2018-09-25T03:51:59.768Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2017/12/03/cloud-service-three/</loc>
+    <loc>http://letianzj.github.io/cloud-service-three.html</loc>
     
     <lastmod>2018-09-23T23:23:41.705Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2017/12/02/cloud-service-two/</loc>
+    <loc>http://letianzj.github.io/cloud-service-two.html</loc>
     
     <lastmod>2018-09-23T23:23:36.802Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2017/11/25/cloud-service-one/</loc>
+    <loc>http://letianzj.github.io/cloud-service-one.html</loc>
     
     <lastmod>2018-09-23T23:23:03.402Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2017/11/02/value-at-risk-one/</loc>
+    <loc>http://letianzj.github.io/value-at-risk-one.html</loc>
     
     <lastmod>2018-09-23T23:22:49.995Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2018/01/20/tensorflow-linear-regression/</loc>
+    <loc>http://letianzj.github.io/tensorflow-linear-regression.html</loc>
     
     <lastmod>2018-09-23T23:21:25.517Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2017/12/26/bayesian-linear-regression/</loc>
+    <loc>http://letianzj.github.io/bayesian-linear-regression.html</loc>
     
     <lastmod>2018-09-23T23:19:11.765Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://letianzj.github.io/2017/10/22/portfolio-management-one/</loc>
+    <loc>http://letianzj.github.io/portfolio-management-one.html</loc>
     
     <lastmod>2018-09-23T23:13:19.998Z</lastmod>
     
