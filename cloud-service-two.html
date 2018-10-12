@@ -87,16 +87,16 @@
 <meta property="og:site_name" content="Letian Wang&#39;s Blog">
 <meta property="og:description" content="IntroductionThis is the second post of Hadoop series. In this post, we will install hadoop High Availability (HA) on the multi-node cluster we created in the first post. If you have a cluster from Ama">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://letianzj.github.io/2017/12/02/cloud-service-two/xshell.png">
-<meta property="og:image" content="http://letianzj.github.io/2017/12/02/cloud-service-two/start_zookeeper.gif">
-<meta property="og:image" content="http://letianzj.github.io/2017/12/02/cloud-service-two/start_dfs.gif">
-<meta property="og:image" content="http://letianzj.github.io/2017/12/02/cloud-service-two/hadoop_web.gif">
-<meta property="og:image" content="http://letianzj.github.io/2017/12/02/cloud-service-two/yarn.png">
+<meta property="og:image" content="http://letianzj.github.io/cloud-service-two/xshell.png">
+<meta property="og:image" content="http://letianzj.github.io/cloud-service-two/start_zookeeper.gif">
+<meta property="og:image" content="http://letianzj.github.io/cloud-service-two/start_dfs.gif">
+<meta property="og:image" content="http://letianzj.github.io/cloud-service-two/hadoop_web.gif">
+<meta property="og:image" content="http://letianzj.github.io/cloud-service-two/yarn.png">
 <meta property="og:updated_time" content="2018-09-23T23:23:36.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cloud Service 02 -- Hadoop HA Multi-Node Cluster">
 <meta name="twitter:description" content="IntroductionThis is the second post of Hadoop series. In this post, we will install hadoop High Availability (HA) on the multi-node cluster we created in the first post. If you have a cluster from Ama">
-<meta name="twitter:image" content="http://letianzj.github.io/2017/12/02/cloud-service-two/xshell.png">
+<meta name="twitter:image" content="http://letianzj.github.io/cloud-service-two/xshell.png">
 
 
 
@@ -167,7 +167,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">Quant Trading and Portfolio Management</p>
+        <h1 class="site-subtitle" itemprop="description">Quant Trading and Portfolio Management</h1>
       
   </div>
 
@@ -266,7 +266,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Cloud Service 02 -- Hadoop HA Multi-Node Cluster</h1>
+          <h2 class="post-title" itemprop="name headline">Cloud Service 02 -- Hadoop HA Multi-Node Cluster</h2>
         
 
         <div class="post-meta">
@@ -371,7 +371,7 @@
 <p><strong>Resource Manager:</strong> vm01, vm02</p>
 <p><strong>Journal Node:</strong> vm01, vm02, vm03, vm04, vm05</p>
 <h2 id="Install-XShell"><a href="#Install-XShell" class="headerlink" title="Install XShell"></a>Install XShell</h2><p>At beginning, let’s install some useful tools. <a href="https://www.netsarang.com/products/xsh_overview.html" target="_blank" rel="noopener">Xshell</a> is a software used for remote login. Another popular choice is <a href="http://www.putty.org/" target="_blank" rel="noopener">PuTTY</a>. You are able to log on to the five machines at the same time, as shown below.</p>
-<img src="/2017/12/02/cloud-service-two/xshell.png" title="xshell to virtual machines">
+<img src="/cloud-service-two/xshell.png" title="xshell to virtual machines">
 <h2 id="Install-WinSCP-Optional"><a href="#Install-WinSCP-Optional" class="headerlink" title="Install WinSCP (Optional)"></a>Install WinSCP (Optional)</h2><p><a href="https://winscp.net/" target="_blank" rel="noopener">WinSCP</a> is used to upload unzipped files to cloud servers. Usually I download hadoop and unzip it in Windows, then upload the unzipped onto server machine. This process is equivalent to the following command</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget url</span><br><span class="line">tar -xvzf file</span><br></pre></td></tr></table></figure>
 <h2 id="Name-the-Machines"><a href="#Name-the-Machines" class="headerlink" title="Name the Machines"></a>Name the Machines</h2><p>Take vm01 as example, in order to refer to it by name vm01 instead of by IP address, we need to give it a name.</p>
@@ -411,7 +411,7 @@
 <p><strong>Do this for the next four machines</strong>, echo “2” on vm02, “3” on vm03, and so on. By doing so, each machine has a file call myid, containing 1~5 respectively.</p>
 <p>Finally we are ready to start zookeeper. Start it on every machine, one by one<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/hadoop/softwares/zookeeper</span><br><span class="line">bin/zkServer.sh start     <span class="comment"># stop, status</span></span><br><span class="line">jps</span><br></pre></td></tr></table></figure></p>
 <p>where QuorumPeerMain is the zookeeper process.</p>
-<img src="/2017/12/02/cloud-service-two/start_zookeeper.gif" title="start zookeeper">
+<img src="/cloud-service-two/start_zookeeper.gif" title="start zookeeper">
 <h2 id="Install-Hadoop"><a href="#Install-Hadoop" class="headerlink" title="Install Hadoop"></a>Install Hadoop</h2><p>Finally we are ready to install <a href="http://hadoop.apache.org/" target="_blank" rel="noopener">hadoop</a>. Download, unzip, and upload it to vm01:/home/softwares/hadoop via WinSCP</p>
 <p>There are six cofiguration files to set. They all reside etc/hadoop folder.</p>
 <p>(1)  core-site.xml</p>
@@ -443,11 +443,11 @@
 <p><strong>With zookeeper running on all machines</strong>, start hadoop on vm01</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/start-dfs.sh          <span class="comment"># stop-dfs.sh</span></span><br></pre></td></tr></table></figure>
 <p>It should start jornalnode process on all machines, namenode and DFSZKFailoverController processes on vm01, vm02, as well as datanode process on vm03, vm04, vm05, shown as follows.</p>
-<img src="/2017/12/02/cloud-service-two/start_dfs.gif" title="hadoop processes on five nodes">
+<img src="/cloud-service-two/start_dfs.gif" title="hadoop processes on five nodes">
 <p>Now you can check on hadoop status here</p>
 <p><a href="http://vm01:50070" target="_blank" rel="noopener">http://vm01:50070</a></p>
 <p><a href="http://vm02:50070" target="_blank" rel="noopener">http://vm02:50070</a></p>
-<img src="/2017/12/02/cloud-service-two/hadoop_web.gif" title="hadoop 50070 port">
+<img src="/cloud-service-two/hadoop_web.gif" title="hadoop 50070 port">
 <p>One namenode is chosen by random to be standby. You can browse the file system on the other namenode.</p>
 <p>(9) start yarn</p>
 <p>Last step, start yarn</p>
@@ -456,7 +456,7 @@
 <p><a href="http://vm01:8088" target="_blank" rel="noopener">http://vm01:8088</a></p>
 <p><a href="http://vm02:8088" target="_blank" rel="noopener">http://vm02:8088</a></p>
 <p>If it doesn’t work, replace vm01 with its ip.</p>
-<img src="/2017/12/02/cloud-service-two/yarn.png" title="yarn 8088 port">
+<img src="/cloud-service-two/yarn.png" title="yarn 8088 port">
 <h2 id="Run-MapReduce-Example"><a href="#Run-MapReduce-Example" class="headerlink" title="Run MapReduce Example"></a>Run MapReduce Example</h2><p>Create a test folder in hadoop and upload a random text file. Then kick of the wordcount task.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/softwares/hadoop/</span><br><span class="line">hdfs dfs -ls / 			<span class="comment"># ls</span></span><br><span class="line">hdfs dfs -mkdir /<span class="built_in">test</span>		<span class="comment"># mkdir</span></span><br><span class="line">hdfs dfs -put LICENSE.txt		<span class="comment"># as an example, upload hadoop license</span></span><br><span class="line">hdfs dfs -ls /<span class="built_in">test</span>			<span class="comment"># check if it is there</span></span><br><span class="line">bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.8.2.jar wordcount /<span class="built_in">test</span>/LICENSE.txt /<span class="built_in">test</span>/out/</span><br></pre></td></tr></table></figure>
       
@@ -601,7 +601,7 @@
                 alt="Letian" />
             
               <p class="site-author-name" itemprop="name">Letian</p>
-              <p class="site-description motion-element" itemprop="description">Personal Blog</p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
