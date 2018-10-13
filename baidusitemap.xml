@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://letianzj.github.io/2017/12/mcmc-linear-regression/</loc>
+    <lastmod>2018-10-12T03:24:59.105Z</lastmod>
+  </url>  <url>
+    <loc>http://letianzj.github.io/2017/12/bayesian-linear-regression/</loc>
+    <lastmod>2018-10-12T03:24:29.832Z</lastmod>
+  </url>  <url>
     <loc>http://letianzj.github.io/2017/11/value-at-risk-one/</loc>
     <lastmod>2018-10-12T03:08:44.463Z</lastmod>
   </url>  <url>
@@ -9,9 +15,6 @@
   </url>  <url>
     <loc>http://letianzj.github.io/2017/10/portfolio-management-one/</loc>
     <lastmod>2018-10-12T03:07:13.243Z</lastmod>
-  </url>  <url>
-    <loc>http://letianzj.github.io/2017/12/mcmc-linear-regression/</loc>
-    <lastmod>2018-10-12T03:06:10.561Z</lastmod>
   </url>  <url>
     <loc>http://letianzj.github.io/2018/03/kalman-filter-pairs-trading/</loc>
     <lastmod>2018-10-12T03:05:16.155Z</lastmod>
@@ -39,9 +42,6 @@
   </url>  <url>
     <loc>http://letianzj.github.io/2017/11/cloud-service-one/</loc>
     <lastmod>2018-10-12T02:57:50.350Z</lastmod>
-  </url>  <url>
-    <loc>http://letianzj.github.io/2017/12/bayesian-linear-regression/</loc>
-    <lastmod>2018-10-12T02:57:05.785Z</lastmod>
   </url>  <url>
     <loc>http://letianzj.github.io/2018/03/mean-reversion/</loc>
     <lastmod>2018-10-12T02:56:46.799Z</lastmod>
