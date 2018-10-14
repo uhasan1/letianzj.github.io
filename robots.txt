@@ -11,5 +11,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://letianzj.github.io/sitemap.xml
-Sitemap: https://letianzj.github.io/baidusitemap.xml
+Sitemap: http://www.letianquant.com/sitemap.xml
+Sitemap: http://www.letianquant/baidusitemap.xml
