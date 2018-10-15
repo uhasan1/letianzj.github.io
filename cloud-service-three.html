@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Machine Learning,Big Data," />
+  <meta name="keywords" content="Hadoop,Apache Spark,Big Data" />
 
 
 
@@ -80,19 +80,19 @@
 
 
 <meta name="description" content="IntroductionThis is the third post of Hadoop series. In this post, we will install Apache Spark on the hadoop cluster we created in the previous post. This is relatively short post, after all we have">
-<meta name="keywords" content="Machine Learning,Big Data">
+<meta name="keywords" content="Hadoop,Apache Spark,Big Data">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cloud Service 03 -- Apache Spark">
-<meta property="og:url" content="http://letianzj.github.io/cloud-service-three.html">
+<meta property="og:url" content="http://letianquant.com/cloud-service-three.html">
 <meta property="og:site_name" content="Letian Wang&#39;s Blog">
 <meta property="og:description" content="IntroductionThis is the third post of Hadoop series. In this post, we will install Apache Spark on the hadoop cluster we created in the previous post. This is relatively short post, after all we have">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://letianzj.github.io/cloud-service-three/spark_8080.png">
-<meta property="og:updated_time" content="2018-09-23T23:23:41.705Z">
+<meta property="og:image" content="http://letianquant.com/2017/12/cloud-service-three/spark_8080.png">
+<meta property="og:updated_time" content="2018-10-12T02:58:13.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cloud Service 03 -- Apache Spark">
 <meta name="twitter:description" content="IntroductionThis is the third post of Hadoop series. In this post, we will install Apache Spark on the hadoop cluster we created in the previous post. This is relatively short post, after all we have">
-<meta name="twitter:image" content="http://letianzj.github.io/cloud-service-three/spark_8080.png">
+<meta name="twitter:image" content="http://letianquant.com/2017/12/cloud-service-three/spark_8080.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://letianzj.github.io/cloud-service-three.html"/>
+  <link rel="canonical" href="http://letianquant.com/cloud-service-three.html"/>
 
 
 
 
 
-  <title>Cloud Service 03 -- Apache Spark | Letian Wang's Blog</title>
+  <title>Cloud Service 03 -- Apache Spark | Hadoop,Apache Spark,Big Data | Letian Wang's Blog</title>
   
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/cloud-service-three.html">
+    <link itemprop="mainEntityOfPage" href="http://letianquant.com/cloud-service-three.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Letian">
@@ -370,7 +370,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r ~/softwares/spark vm02:/home/hadoop/softwares/spark</span><br></pre></td></tr></table></figure>
 <p>Now we are ready to start spark. There will be a Master process on vm01 and a Worker process on each of the slave machine vm03, vm04, vm05<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/softwares/spark</span><br><span class="line">mkdir logs</span><br><span class="line">chmod a+x bin/*</span><br><span class="line">chmod a+x sbin/*</span><br><span class="line">sbin/start-all.sh</span><br><span class="line">jps</span><br></pre></td></tr></table></figure></p>
 <p>We can check spark status at <a href="http://vm01:8080" target="_blank" rel="noopener">http://vm01:8080</a></p>
-<img src="/cloud-service-three/spark_8080.png" title="spark 8080 port">
+<img src="/2017/12/cloud-service-three/spark_8080.png" title="spark 8080 port">
 <h2 id="Run-Spark-Example"><a href="#Run-Spark-Example" class="headerlink" title="Run Spark Example"></a>Run Spark Example</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bin/run-example org.apache.spark.examples.SparkPi</span><br><span class="line">sbin/stop-all.sh</span><br></pre></td></tr></table></figure>
 <h2 id="Learn-Spark"><a href="#Learn-Spark" class="headerlink" title="Learn Spark"></a>Learn Spark</h2><ul>
 <li><a href="https://spark.apache.org/docs/latest/quick-start.html" target="_blank" rel="noopener">Apache Spark quick start</a></li>
@@ -396,7 +396,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="http://letianzj.github.io/cloud-service-three.html" title="Cloud Service 03 -- Apache Spark">http://letianzj.github.io/cloud-service-three.html</a>
+    <a href="http://letianquant.com/cloud-service-three.html" title="Cloud Service 03 -- Apache Spark">http://letianquant.com/cloud-service-three.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -636,7 +636,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a></div>
 
 
 
@@ -644,7 +644,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">NexT.Gemini</a> v5.1.4</div>
 
 
 
@@ -776,7 +776,7 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://letianzj.github.io/cloud-service-three.html';
+          this.page.url = 'http://letianquant.com/cloud-service-three.html';
           this.page.identifier = 'cloud-service-three.html';
           this.page.title = 'Cloud Service 03 -- Apache Spark';
         };

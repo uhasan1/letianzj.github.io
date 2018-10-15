@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Machine Learning," />
+  <meta name="keywords" content="Kalman Filter,Machine Learning,Linear Regression,Pairs Trading,State Space Model" />
 
 
 
@@ -80,19 +80,19 @@
 
 
 <meta name="description" content="IntroductionKalman Filter is a state space model that assumes the system state evolves by some hidden and unobservable pattern. Instead we can only observe some measurable features from the system, ba">
-<meta name="keywords" content="Machine Learning">
+<meta name="keywords" content="Kalman Filter,Machine Learning,Linear Regression,Pairs Trading,State Space Model">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kalman Filter Linear Regression">
-<meta property="og:url" content="http://letianzj.github.io/kalman-filter-linear-regression.html">
+<meta property="og:url" content="http://letianquant.com/kalman-filter-linear-regression.html">
 <meta property="og:site_name" content="Letian Wang&#39;s Blog">
 <meta property="og:description" content="IntroductionKalman Filter is a state space model that assumes the system state evolves by some hidden and unobservable pattern. Instead we can only observe some measurable features from the system, ba">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://letianzj.github.io/hidden_state_evolution.png">
-<meta property="og:updated_time" content="2018-10-05T04:10:09.062Z">
+<meta property="og:image" content="http://letianquant.com/hidden_state_evolution.png">
+<meta property="og:updated_time" content="2018-10-12T03:04:57.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kalman Filter Linear Regression">
 <meta name="twitter:description" content="IntroductionKalman Filter is a state space model that assumes the system state evolves by some hidden and unobservable pattern. Instead we can only observe some measurable features from the system, ba">
-<meta name="twitter:image" content="http://letianzj.github.io/hidden_state_evolution.png">
+<meta name="twitter:image" content="http://letianquant.com/hidden_state_evolution.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://letianzj.github.io/kalman-filter-linear-regression.html"/>
+  <link rel="canonical" href="http://letianquant.com/kalman-filter-linear-regression.html"/>
 
 
 
 
 
-  <title>Kalman Filter Linear Regression | Letian Wang's Blog</title>
+  <title>Kalman Filter Linear Regression | Kalman Filter,Machine Learning,Linear Regression,Pairs Trading,State Space Model | Letian Wang's Blog</title>
   
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://letianzj.github.io/kalman-filter-linear-regression.html">
+    <link itemprop="mainEntityOfPage" href="http://letianquant.com/kalman-filter-linear-regression.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Letian">
@@ -356,15 +356,15 @@
       
 
       
-        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://en.wikipedia.org/wiki/Kalman_filter" target="_blank" rel="noopener">Kalman Filter</a> is a <a href="https://en.wikipedia.org/wiki/State-space_representation" target="_blank" rel="noopener">state space model</a> that assumes the system state evolves by some hidden and unobservable pattern. Instead we can only observe some measurable features from the system, based on which we try to guess the current state of the system. An example would be without openning Bloomberg terminal, you try to guess stock market movement every day from the trader’s mood.  The graphical narrative can be found <a href="/hidden-markov-chain.html" title="in this post">in this post</a>.</p>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://en.wikipedia.org/wiki/Kalman_filter" target="_blank" rel="noopener">Kalman Filter</a> is a <a href="https://en.wikipedia.org/wiki/State-space_representation" target="_blank" rel="noopener">state space model</a> that assumes the system state evolves by some hidden and unobservable pattern. Instead we can only observe some measurable features from the system, based on which we try to guess the current state of the system. An example would be without openning Bloomberg terminal, you try to guess stock market movement every day from the trader’s mood.  The graphical narrative can be found <a href="/2018/09/hidden-markov-chain/" title="in this post">in this post</a>.</p>
 <p><a href="https://www.amazon.com/Pairs-Trading-Quantitative-Methods-Analysis/dp/047146067" target="_blank" rel="noopener">This book</a> provides a simple random walk example where the hidden state is the true equilibrium stock price in some time interval while stock close price of that interval serves as an observation with errors. Then it proves that the true equilibrium price is the weighted average of close prices with the weights being Fibonacci sequence. <a href="https://www.amazon.com/Algorithmic-Trading-Winning-Strategies-Rationale/dp/1118460146" target="_blank" rel="noopener">Dr Chan</a> makes Kalman Filter popular to the online quantitative trading community with his EWA-EWC ETF pairs trading strategy.</p>
-<p>In this post we will continue with our simple linear regression example from <a href="/mcmc-linear-regression.html" title="last post">last post</a>, and follow the plain Kalman Filter logic without the help of Python packages such as <a href="https://pykalman.github.io/" target="_blank" rel="noopener">PyKalman</a>.</p>
+<p>In this post we will continue with our simple linear regression example from <a href="/2017/12/mcmc-linear-regression/" title="last post">last post</a>, and follow the plain Kalman Filter logic without the help of Python packages such as <a href="https://pykalman.github.io/" target="_blank" rel="noopener">PyKalman</a>.</p>
 <a id="more"></a>
 <h2 id="Kalman-Fitler-Regression-System"><a href="#Kalman-Fitler-Regression-System" class="headerlink" title="Kalman Fitler Regression System"></a>Kalman Fitler Regression System</h2><p>Kalman Filter as presented in the appendix is very mechanical. The hard part is to design a system that reflects the reality, and after that it’s just a matter of following the steps. </p>
 <p>In our simple linear example the state variable $\theta$ contains intercept and slope and is assumed to follow a transition equation of random walk with Gaussian innovations:</p>
 <p>$$<br>\theta_k = \begin{bmatrix} a_k \\ b_k \end{bmatrix} =\theta_{k-1} + w_t<br>\tag{2.1}<br>$$</p>
 <p>where $a_k$ and $b_k$ are intercept and slope, respectively. This corresponds to equation $(A.1)$. </p>
-<p>Comparing with <a href="/mcmc-linear-regression.html" title="last post">last post</a> where the posterior distribution is static, here the state evolves dynamically over time with linear transition conditions, hence the name Dynamic Linear Model (DLM).</p>
+<p>Comparing with <a href="/2017/12/mcmc-linear-regression/" title="last post">last post</a> where the posterior distribution is static, here the state evolves dynamically over time with linear transition conditions, hence the name Dynamic Linear Model (DLM).</p>
 <p>After the state is transited, it’s time to observe the system. Because it takes two points to determine a line, it is assumed to observe two points $(x_{1,t}, y_{1,t})$ and $(x_{2,t}, y_{2,t})$. The measurement equation $(A.2)$ can be re-written as,</p>
 <p> $$<br>y_t =\begin{bmatrix} y_{1,t} \\ y_{2,t} \end{bmatrix}=\begin{bmatrix} 1 &amp; x_{1,t} \\ 1 &amp; x_{2,t}\end{bmatrix}  \begin{bmatrix} a_t \\ b_t \end{bmatrix} + v_t<br>\tag{2.2}<br> $$</p>
 <p>The last thing we need to start the system is the initial value $\theta_{0|0}$ and $P_{0|0}$</p>
@@ -422,7 +422,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="http://letianzj.github.io/kalman-filter-linear-regression.html" title="Kalman Filter Linear Regression">http://letianzj.github.io/kalman-filter-linear-regression.html</a>
+    <a href="http://letianquant.com/kalman-filter-linear-regression.html" title="Kalman Filter Linear Regression">http://letianquant.com/kalman-filter-linear-regression.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -660,7 +660,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a></div>
 
 
 
@@ -668,7 +668,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">NexT.Gemini</a> v5.1.4</div>
 
 
 
@@ -800,7 +800,7 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://letianzj.github.io/kalman-filter-linear-regression.html';
+          this.page.url = 'http://letianquant.com/kalman-filter-linear-regression.html';
           this.page.identifier = 'kalman-filter-linear-regression.html';
           this.page.title = 'Kalman Filter Linear Regression';
         };
