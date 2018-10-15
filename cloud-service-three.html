@@ -87,12 +87,12 @@
 <meta property="og:site_name" content="Letian Wang&#39;s Blog">
 <meta property="og:description" content="IntroductionThis is the third post of Hadoop series. In this post, we will install Apache Spark on the hadoop cluster we created in the previous post. This is relatively short post, after all we have">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://letianquant.com/2017/12/cloud-service-three/spark_8080.png">
+<meta property="og:image" content="http://letianquant.com/cloud-service-three/spark_8080.png">
 <meta property="og:updated_time" content="2018-10-12T02:58:13.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cloud Service 03 -- Apache Spark">
 <meta name="twitter:description" content="IntroductionThis is the third post of Hadoop series. In this post, we will install Apache Spark on the hadoop cluster we created in the previous post. This is relatively short post, after all we have">
-<meta name="twitter:image" content="http://letianquant.com/2017/12/cloud-service-three/spark_8080.png">
+<meta name="twitter:image" content="http://letianquant.com/cloud-service-three/spark_8080.png">
 
 
 
@@ -370,7 +370,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r ~/softwares/spark vm02:/home/hadoop/softwares/spark</span><br></pre></td></tr></table></figure>
 <p>Now we are ready to start spark. There will be a Master process on vm01 and a Worker process on each of the slave machine vm03, vm04, vm05<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/softwares/spark</span><br><span class="line">mkdir logs</span><br><span class="line">chmod a+x bin/*</span><br><span class="line">chmod a+x sbin/*</span><br><span class="line">sbin/start-all.sh</span><br><span class="line">jps</span><br></pre></td></tr></table></figure></p>
 <p>We can check spark status at <a href="http://vm01:8080" target="_blank" rel="noopener">http://vm01:8080</a></p>
-<img src="/2017/12/cloud-service-three/spark_8080.png" title="spark 8080 port">
+<img src="/cloud-service-three/spark_8080.png" title="spark 8080 port">
 <h2 id="Run-Spark-Example"><a href="#Run-Spark-Example" class="headerlink" title="Run Spark Example"></a>Run Spark Example</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bin/run-example org.apache.spark.examples.SparkPi</span><br><span class="line">sbin/stop-all.sh</span><br></pre></td></tr></table></figure>
 <h2 id="Learn-Spark"><a href="#Learn-Spark" class="headerlink" title="Learn Spark"></a>Learn Spark</h2><ul>
 <li><a href="https://spark.apache.org/docs/latest/quick-start.html" target="_blank" rel="noopener">Apache Spark quick start</a></li>
