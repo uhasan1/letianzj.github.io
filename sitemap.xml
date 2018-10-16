@@ -2,79 +2,93 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://letianquant.com/mcmc-linear-regression.html</loc>
-    
-    <lastmod>2018-10-12T03:24:59.105Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://letianquant.com/bayesian-linear-regression.html</loc>
-    
-    <lastmod>2018-10-12T03:24:29.832Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://letianquant.com/value-at-risk-one.html</loc>
     
-    <lastmod>2018-10-12T03:08:44.463Z</lastmod>
+    <lastmod>2018-10-16T00:31:55.287Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://letianquant.com/tensorflow-linear-regression.html</loc>
     
-    <lastmod>2018-10-12T03:07:51.986Z</lastmod>
+    <lastmod>2018-10-16T00:31:23.106Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://letianquant.com/portfolio-management-one.html</loc>
     
-    <lastmod>2018-10-12T03:07:13.243Z</lastmod>
+    <lastmod>2018-10-16T00:30:50.683Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://letianquant.com/mean-reversion.html</loc>
+    
+    <lastmod>2018-10-16T00:28:09.098Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://letianquant.com/mcmc-linear-regression.html</loc>
+    
+    <lastmod>2018-10-16T00:27:16.336Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://letianquant.com/kalman-filter-pairs-trading.html</loc>
     
-    <lastmod>2018-10-12T03:05:16.155Z</lastmod>
+    <lastmod>2018-10-16T00:26:28.118Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://letianquant.com/kalman-filter-linear-regression.html</loc>
     
-    <lastmod>2018-10-12T03:04:57.749Z</lastmod>
+    <lastmod>2018-10-16T00:24:16.293Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://letianquant.com/hidden-markov-chain.html</loc>
     
-    <lastmod>2018-10-12T03:03:53.535Z</lastmod>
+    <lastmod>2018-10-16T00:23:39.806Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://letianquant.com/elitequant-excel.html</loc>
     
-    <lastmod>2018-10-12T03:02:10.432Z</lastmod>
+    <lastmod>2018-10-16T00:23:06.602Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://letianquant.com/elitequant-backtesting.html</loc>
     
-    <lastmod>2018-10-12T03:01:07.411Z</lastmod>
+    <lastmod>2018-10-16T00:22:31.976Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://letianquant.com/cointegration-pairs-trading.html</loc>
     
-    <lastmod>2018-10-12T03:00:16.929Z</lastmod>
+    <lastmod>2018-10-16T00:21:28.741Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://letianquant.com/classical-linear-regression.html</loc>
+    
+    <lastmod>2018-10-16T00:19:56.403Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://letianquant.com/bayesian-linear-regression.html</loc>
+    
+    <lastmod>2018-10-16T00:19:15.869Z</lastmod>
     
   </url>
   
@@ -96,20 +110,6 @@
     <loc>http://letianquant.com/cloud-service-one.html</loc>
     
     <lastmod>2018-10-12T02:57:50.350Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://letianquant.com/mean-reversion.html</loc>
-    
-    <lastmod>2018-10-12T02:56:46.799Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://letianquant.com/classical-linear-regression.html</loc>
-    
-    <lastmod>2018-10-12T02:56:28.325Z</lastmod>
     
   </url>
   

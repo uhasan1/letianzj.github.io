@@ -87,12 +87,12 @@
 <meta property="og:site_name" content="Letian Wang">
 <meta property="og:description" content="IntroductionHidden Markov Model (HMM) is a Markov Model with latent state space. It is the discrete version of Dynamic Linear Model, commonly seen in speech recognition. In quantitative trading, it ha">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://letianquant.com/example.png">
-<meta property="og:updated_time" content="2018-10-12T03:03:53.535Z">
+<meta property="og:image" content="http://letianquant.com/hidden-markov-chain/example.png">
+<meta property="og:updated_time" content="2018-10-16T00:23:39.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hidden Markov Chain">
 <meta name="twitter:description" content="IntroductionHidden Markov Model (HMM) is a Markov Model with latent state space. It is the discrete version of Dynamic Linear Model, commonly seen in speech recognition. In quantitative trading, it ha">
-<meta name="twitter:image" content="http://letianquant.com/example.png">
+<meta name="twitter:image" content="http://letianquant.com/hidden-markov-chain/example.png">
 
 
 
@@ -358,7 +358,9 @@
       
         <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a href="https://en.wikipedia.org/wiki/Hidden_Markov_model" target="_blank" rel="noopener">Hidden Markov Model (HMM)</a> is a <a href="https://en.wikipedia.org/wiki/Markov_model" target="_blank" rel="noopener">Markov Model</a> with latent <a href="https://en.wikipedia.org/wiki/State_space" target="_blank" rel="noopener">state space</a>. It is the discrete version of Dynamic Linear Model, commonly seen in speech recognition. In quantitative trading, it has been applied to detecting latent market regimes ([2], [3]). I’ll relegate technical details to appendix and present the intuitions by an example.</p>
 <a id="more"></a>
-<p><img src="example.png" align="left" width="100%" height="100%"><br>No cell phone, no TV, without logging into Bloomberg terminal, this simple example teaches you how to guess market movements solely from the trader’s mood. Here the two hidden states are market rally or drop. The transition matrix stipulates that if the market goes up today, there are 80% chance that the trend will continue tomorrow and 20% chance that the trend will reverse. On the contrary, if the market drops today, there are 70% chance sliding further tomorrow and 30% chance turning back up. </p>
+<!--<img src="example.png" align="left" width="100%" height="100%">-->
+<img src="/hidden-markov-chain/example.png" title="Example">
+<p>No cell phone, no TV, without logging into Bloomberg terminal, this simple example teaches you how to guess market movements solely from the trader’s mood. Here the two hidden states are market rally or drop. The transition matrix stipulates that if the market goes up today, there are 80% chance that the trend will continue tomorrow and 20% chance that the trend will reverse. On the contrary, if the market drops today, there are 70% chance sliding further tomorrow and 30% chance turning back up. </p>
 <p>The emission matrix shows the dependency of the trader’s mood on mareket changes. If she is just moody (high noise/information ratio), it would tell us nothing about the market. If somehow her mood is driven by her PnL, then we might be able to learn the market from her behavior. In this example, it says that if the market heads up, she would most likely be happy but there are 10% chance that something else, for example a car accident in the morning, upsets here. On the contrary, if the market goes down she would be unhappy, unless something else, perphas today happens to be her anniversary, cheers her up.</p>
 <p>With all these uncertainties/probabilities in place, there are three questions to ask, in the order of complexity:</p>
 <ol>

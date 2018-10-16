@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="Letian Wang">
 <meta property="og:description" content="IntroductionElitequant is an open source low latency event driven trading system. This post goes over the structure of its historical backtesting module. I’ll use Elitequant Python as example but the">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://letianquant.com/backtest_structure.png">
-<meta property="og:image" content="http://letianquant.com/moving_average_cross.png">
-<meta property="og:updated_time" content="2018-10-12T03:01:07.411Z">
+<meta property="og:image" content="http://letianquant.com/elitequant-backtesting/backtest_structure.png">
+<meta property="og:image" content="http://letianquant.com/elitequant-backtesting/moving_average_cross.png">
+<meta property="og:updated_time" content="2018-10-16T00:22:31.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elitequant Backtesting">
 <meta name="twitter:description" content="IntroductionElitequant is an open source low latency event driven trading system. This post goes over the structure of its historical backtesting module. I’ll use Elitequant Python as example but the">
-<meta name="twitter:image" content="http://letianquant.com/backtest_structure.png">
+<meta name="twitter:image" content="http://letianquant.com/elitequant-backtesting/backtest_structure.png">
 
 
 
@@ -367,7 +367,8 @@
 </ol>
 <h2 id="Backtest-Structure"><a href="#Backtest-Structure" class="headerlink" title="Backtest Structure"></a>Backtest Structure</h2><p>Below is the structure of Elitequant backtesting module. I neglected those files for live trading.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">+-- brokerage</span><br><span class="line">|   +-- backtest_brokerage.py</span><br><span class="line">+-- data</span><br><span class="line">|   +-- backtest_data_feed_local_single_symbol.py</span><br><span class="line">|   +-- bar_event.py</span><br><span class="line">|   +-- data_board.py</span><br><span class="line">|   +-- tick_event.py</span><br><span class="line">+-- event</span><br><span class="line">|   +-- backtest_event_engine.py</span><br><span class="line">|   +-- event.py</span><br><span class="line">+-- order</span><br><span class="line">|   +-- fill_event.py</span><br><span class="line">|   +-- order_event.py</span><br><span class="line">|   +-- order_manager.py</span><br><span class="line">|   +-- order_event.py</span><br><span class="line">|   +-- order_status.py</span><br><span class="line">|   +-- order_type.py</span><br><span class="line">+-- performance</span><br><span class="line">|   +-- performace_manager.py</span><br><span class="line">+-- position</span><br><span class="line">|   +-- portfolio_manager.py</span><br><span class="line">|   +-- position.py</span><br><span class="line">+-- strategy</span><br><span class="line">|   +-- __init__.py</span><br><span class="line">|   +-- mystrategy</span><br><span class="line">|   +-- strategy_manager.py</span><br><span class="line">+-- backtest_engine.py</span><br><span class="line">+-- backtest_optimization_engine.py</span><br><span class="line">+-- config_backtest.yml</span><br></pre></td></tr></table></figure>
-<p><img src="backtest_structure.png" align="center" width="80%" height="80%"></p>
+<!--<img src="backtest_structure.png" align="center" width="80%" height="80%">-->
+<img src="/elitequant-backtesting/backtest_structure.png" title="Backtest Structure">
 <p>In the graph event engine is put as the driving force of the system; and traders or your strategies are supported (surrounded) by people such as order managers and performance managers. all these components are wired up in the file backtest_engine.py. </p>
 <h3 id="Data-Feed"><a href="#Data-Feed" class="headerlink" title="Data Feed"></a>Data Feed</h3><p>Data feed feeds the data into the system. An example of data is historical price OHLC bars retrieved from local file in BacktestDataFeedLocalSingleSymbol.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">subscribe_market_data</span><span class="params">(self, symbols)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> symbols <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">        <span class="keyword">for</span> sym <span class="keyword">in</span> symbols:</span><br><span class="line">            self._retrieve_historical_data(sym)       <span class="comment"># retrieve historical data</span></span><br></pre></td></tr></table></figure>
@@ -392,7 +393,8 @@
 <p>In <a href="https://github.com/EliteQuant/EliteQuant_Python/blob/master/source/backtest_optimization_engine.py" target="_blank" rel="noopener">backtest_optimization_engine</a>, it demos either reading paramater list from config.yaml or setting it directly in code. The advantage of the latter is to allow you construct parameter grids in a loop. The results are sorted by target performance measure. Each backtest is assigned an ID called batch token, which is used to identify its result files in <strong>out_dir</strong> folder.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Params：&#123;'short_window': 50, 'long_window': 100&#125;，Sharpe ratio：0.7771284386050981</span><br><span class="line">Params：&#123;'short_window': 10, 'long_window': 20&#125;，Sharpe ratio：0.7374670421689613</span><br><span class="line">Params：&#123;'short_window': 20, 'long_window': 40&#125;，Sharpe ratio：0.5593737983561646</span><br></pre></td></tr></table></figure>
 <p>To take a closer look, below is the details from one particular parameter.</p>
-<p><img src="moving_average_cross.png" align="center" width="80%" height="80%"></p>
+<!--<img src="moving_average_cross.png" align="center" width="80%" height="80%">-->
+<img src="/elitequant-backtesting/moving_average_cross.png" title="Backtest Results">
 <p>Happy trading!</p>
 
       

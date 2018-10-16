@@ -87,12 +87,12 @@
 <meta property="og:site_name" content="Letian Wang">
 <meta property="og:description" content="IntroductionEliteQuant Excel is an open source quantitative modeling solution in Excel. Excel is one of the most popular tools in the business world, across both sell side and buy side. EliteQuant Exc">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://letianquant.com/tech_stack.png">
-<meta property="og:updated_time" content="2018-10-12T03:02:10.432Z">
+<meta property="og:image" content="http://letianquant.com/elitequant-excel/tech_stack.png">
+<meta property="og:updated_time" content="2018-10-16T00:23:06.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EliteQuant Excel">
 <meta name="twitter:description" content="IntroductionEliteQuant Excel is an open source quantitative modeling solution in Excel. Excel is one of the most popular tools in the business world, across both sell side and buy side. EliteQuant Exc">
-<meta name="twitter:image" content="http://letianquant.com/tech_stack.png">
+<meta name="twitter:image" content="http://letianquant.com/elitequant-excel/tech_stack.png">
 
 
 
@@ -361,7 +361,8 @@
 <p>This post will discuss the technical stack used by EliteQuant Excel from developer’s perspective.</p>
 <a id="more"></a>
 <h2 id="Code-Structure"><a href="#Code-Structure" class="headerlink" title="Code Structure"></a>Code Structure</h2><p>Before proceed, I want to point out that QuantLib does provide an Excel add-in called <a href="https://www.quantlib.org/quantlibxl/" target="_blank" rel="noopener">QuantLibXL</a>. But I find C#/ExcelDNA route is simplier and more flexible. The technical stack requirment is shown as follows. In order to understand the structure, you need some previous knowledge about C++, C#, and VBA.</p>
-<p><img src="tech_stack.png" align="center" width="80%" height="80%"></p>
+<!--<img src="tech_stack.png" align="center" width="80%" height="80%">-->
+<img src="/elitequant-excel/tech_stack.png" title="TechStack">
 <p>Below is the simplified code structure of the project.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+-- CppCoreLibrary</span><br><span class="line">|   +-- QLExtension</span><br><span class="line">|   	+-- quantlib.i</span><br><span class="line">+-- SwigConversionLayer</span><br><span class="line">|   +-- swig</span><br><span class="line">|   +-- NQuantlibc</span><br><span class="line">|   +-- QLEX</span><br><span class="line">|   	+-- NQuantLibcPINVOKE.cs</span><br><span class="line">+-- CSharpApplication</span><br><span class="line">|   +-- EliteQuant</span><br><span class="line">|   +-- EliteQuantExcel</span><br></pre></td></tr></table></figure>
 <h3 id="C-Analytical-Library"><a href="#C-Analytical-Library" class="headerlink" title="C++ Analytical Library"></a>C++ Analytical Library</h3><p>EliteQuant Excel is based on open-source C++ library <a href="https://www.quantlib.org/" target="_blank" rel="noopener">Quantlib</a>, which in turn depends on <a href="https://www.boost.org/" target="_blank" rel="noopener">Boost C++</a>. Therefore before we start you you need to install both of them. Fortunately, <a href="https://www.quantlib.org/install.shtml" target="_blank" rel="noopener">QuantLib official website</a> provides a detailed intallation guide across operating systems.</p>
