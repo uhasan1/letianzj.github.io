@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://letianquant.com/hidden-markov-chain.html</loc>
+    
+    <lastmod>2018-10-16T00:58:30.995Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://letianquant.com/value-at-risk-one.html</loc>
     
     <lastmod>2018-10-16T00:31:55.287Z</lastmod>
@@ -51,13 +58,6 @@
   </url>
   
   <url>
-    <loc>http://letianquant.com/hidden-markov-chain.html</loc>
-    
-    <lastmod>2018-10-16T00:23:39.806Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://letianquant.com/elitequant-excel.html</loc>
     
     <lastmod>2018-10-16T00:23:06.602Z</lastmod>
@@ -93,6 +93,13 @@
   </url>
   
   <url>
+    <loc>http://letianquant.com/cloud-service-one.html</loc>
+    
+    <lastmod>2018-10-16T00:17:47.749Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://letianquant.com/cloud-service-two.html</loc>
     
     <lastmod>2018-10-12T02:58:47.356Z</lastmod>
@@ -103,13 +110,6 @@
     <loc>http://letianquant.com/cloud-service-three.html</loc>
     
     <lastmod>2018-10-12T02:58:13.852Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://letianquant.com/cloud-service-one.html</loc>
-    
-    <lastmod>2018-10-12T02:57:50.350Z</lastmod>
     
   </url>
   
