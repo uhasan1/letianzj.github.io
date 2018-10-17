@@ -89,7 +89,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://letianquant.com/cointegration-pairs-trading/ewa_ewc.png">
 <meta property="og:image" content="http://letianquant.com/cointegration-pairs-trading/backtest_results.png">
-<meta property="og:updated_time" content="2018-10-16T00:21:28.741Z">
+<meta property="og:updated_time" content="2018-10-16T23:04:18.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cointegration and Pairs Trading">
 <meta name="twitter:description" content="IntroductionIn last post we examined the mean reversion statistical test and traded on a single name time series. Often times single stock price is not mean-reverting but we are able to artificially c">
@@ -358,6 +358,7 @@
 
       
         <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In <a href="/mean-reversion.html" title="last post">last post</a> we examined the mean reversion statistical test and traded on a single name time series. Often times single stock price is not mean-reverting but we are able to artificially create a portfolio of stocks that is mean-reverting. If the portfolio has only two stocks, it is known as <a href="https://en.wikipedia.org/wiki/Pairs_trade" target="_blank" rel="noopener">pairs trading</a>, a special form of <a href="https://en.wikipedia.org/wiki/Statistical_arbitrage" target="_blank" rel="noopener">statistical arbitrage</a>. By combining two <a href="https://en.wikipedia.org/wiki/Cointegration" target="_blank" rel="noopener">cointegrated</a> stocks, we can construct a spread that is mean-reverting, even when these two stocks themselves are not. Please refer to the appendix if you want to check out cointegration first.</p>
+<p><a href="https://en.wikipedia.org/wiki/Cointegration" target="_blank" rel="noopener">Cointegration</a> and <a href="https://en.wikipedia.org/wiki/Correlation_and_dependence" target="_blank" rel="noopener">correlation</a> talk abouot different things. For example, if two stock prices follow two straight lines with differennt slopes, then they are positively correlated but not cointegrated, as illustrated in <a href="https://www.quora.com/What-is-the-difference-between-correlation-and-cointegration-Is-cointegration-a-good-measure-of-risk" target="_blank" rel="noopener">this quora post</a>. The mathematical formulas are relegated in the appendix.</p>
 <p>The backtest codes in this post is located in the <a href="https://github.com/EliteQuant/EliteQuant_Python/tree/master/source/strategy/mystrategy" target="_blank" rel="noopener">strategy folder</a>. All other codes can be found in the <a href="https://github.com/EliteQuant/EliteQuant_Python/tree/master/research" target="_blank" rel="noopener">research folder</a>.</p>
 <a id="more"></a>
 <h2 id="Statistical-Testing"><a href="#Statistical-Testing" class="headerlink" title="Statistical Testing"></a>Statistical Testing</h2><p>Let’s look at Ernie Chan’s ([2]) EWA and EWC trade. The reasoning behind this trade is that both Canada and Australia’s GDP rely heavily on natural resources, therefore their stock market performance are expected to be correlated through natural resources’ prices.</p>
@@ -564,7 +565,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

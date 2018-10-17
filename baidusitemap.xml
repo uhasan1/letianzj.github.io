@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://letianquant.com/hidden-markov-chain.html</loc>
-    <lastmod>2018-10-16T03:05:52.833Z</lastmod>
+    <loc>http://letianquant.com/carry-and-roll-down.html</loc>
+    <lastmod>2018-10-17T02:05:34.117Z</lastmod>
+  </url>  <url>
+    <loc>http://letianquant.com/cointegration-pairs-trading.html</loc>
+    <lastmod>2018-10-16T23:04:18.042Z</lastmod>
+  </url>  <url>
+    <loc>http://letianquant.com/classical-linear-regression.html</loc>
+    <lastmod>2018-10-16T03:15:29.034Z</lastmod>
+  </url>  <url>
+    <loc>http://letianquant.com/bayesian-linear-regression.html</loc>
+    <lastmod>2018-10-16T03:15:03.621Z</lastmod>
   </url>  <url>
     <loc>http://letianquant.com/value-at-risk-one.html</loc>
-    <lastmod>2018-10-16T00:31:55.287Z</lastmod>
+    <lastmod>2018-10-16T03:14:34.900Z</lastmod>
+  </url>  <url>
+    <loc>http://letianquant.com/hidden-markov-chain.html</loc>
+    <lastmod>2018-10-16T03:05:52.833Z</lastmod>
   </url>  <url>
     <loc>http://letianquant.com/tensorflow-linear-regression.html</loc>
     <lastmod>2018-10-16T00:31:23.106Z</lastmod>
@@ -30,15 +42,6 @@
   </url>  <url>
     <loc>http://letianquant.com/elitequant-backtesting.html</loc>
     <lastmod>2018-10-16T00:22:31.976Z</lastmod>
-  </url>  <url>
-    <loc>http://letianquant.com/cointegration-pairs-trading.html</loc>
-    <lastmod>2018-10-16T00:21:28.741Z</lastmod>
-  </url>  <url>
-    <loc>http://letianquant.com/classical-linear-regression.html</loc>
-    <lastmod>2018-10-16T00:19:56.403Z</lastmod>
-  </url>  <url>
-    <loc>http://letianquant.com/bayesian-linear-regression.html</loc>
-    <lastmod>2018-10-16T00:19:15.869Z</lastmod>
   </url>  <url>
     <loc>http://letianquant.com/cloud-service-one.html</loc>
     <lastmod>2018-10-16T00:17:47.749Z</lastmod>
