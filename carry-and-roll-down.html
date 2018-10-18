@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Carry,Roll Down,Carry Trade,Alternative Risk Premia" />
+  <meta name="keywords" content="Carry,Roll-Down,Carry Trade,Alternative Risk Premia" />
 
 
 
@@ -80,14 +80,14 @@
 
 
 <meta name="description" content="IntroductionSometimes I find the concept of Carry and Roll Down are confusing; and different people tend to mean different things in different context. In this post I try to explore the definitions ac">
-<meta name="keywords" content="Carry,Roll Down,Carry Trade,Alternative Risk Premia">
+<meta name="keywords" content="Carry,Roll-Down,Carry Trade,Alternative Risk Premia">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Carry and Roll Down">
 <meta property="og:url" content="http://letianquant.com/carry-and-roll-down.html">
 <meta property="og:site_name" content="Letian Wang">
 <meta property="og:description" content="IntroductionSometimes I find the concept of Carry and Roll Down are confusing; and different people tend to mean different things in different context. In this post I try to explore the definitions ac">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-17T02:12:01.577Z">
+<meta property="og:updated_time" content="2018-10-18T00:50:56.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Carry and Roll Down">
 <meta name="twitter:description" content="IntroductionSometimes I find the concept of Carry and Roll Down are confusing; and different people tend to mean different things in different context. In this post I try to explore the definitions ac">
@@ -126,7 +126,7 @@
 
 
 
-  <title>Carry and Roll Down | Carry,Roll Down,Carry Trade,Alternative Risk Premia | Letian Wang</title>
+  <title>Carry and Roll Down | Carry,Roll-Down,Carry Trade,Alternative Risk Premia | Letian Wang</title>
   
 
 
@@ -360,9 +360,9 @@
 <p>$$<br>PnL=F(T,T)-F(0,T)<br>\tag{1.1}<br>$$</p>
 <p>where $F(T,T)$ is its final price at time $T$ int the future.</p>
 <p>By adding/subtracting simultaneously spot price $S(0)$ in formula $(1.1)$, we get</p>
-<p>$$<br>PnL=\underbrace{F(T,T)-S(0)}<em>{spot\hspace{0.5em}return}+\underbrace{S(0)-F(0,T)}</em>{Carry}<br>\tag{1.2}<br>$$</p>
-<p>If the underlying of the forward contract has finite maturities $M$, for exmaple a 10Y UST bond, then $(1.2)$ can be written similarily as,</p>
-<p>$$<br>PnL=\underbrace{F(T,T,M)-S(0,M-T)}<em>{spot\hspace{0.5em}return}+\underbrace{S(0,M-T)-F(0,T,M)}</em>{Carry}<br>\tag{1.3}<br>$$</p>
+<p>$$<br>PnL=F(T,T)-S(0)+S(0)-F(0,T)<br>\tag{1.2}<br>$$</p>
+<p>where the first different on the right-hand side is spot return and the second difference is <strong>carry</strong>. If the underlying of the forward contract has finite maturities $M$, for exmaple a 10Y UST bond, then $(1.2)$ can be written similarily as,</p>
+<p>$$<br>PnL=F(T,T,M-T)-S(0,M-T)+S(0,M-T)-F(0,T,M)<br>\tag{1.3}<br>$$</p>
 <p>The formulas will become clearer after we examine some examples.</p>
 <p>Again, if you have some difficulties in viewing the mathematical formulas, try  right click on it and select Math Settings Math Renderer to switch to another format.</p>
 <h2 id="Foreign-Exchange"><a href="#Foreign-Exchange" class="headerlink" title="Foreign Exchange"></a>Foreign Exchange</h2><p>Let’s consider a one year USDJPY carry trade $T=1y$ and spot exchange rate $S(0)=110$. Assume JPY 1 year rate is $r_d=0.5\%$ and USD 1 year rate is $r_f=3\%$. Then the trade works like this.</p>
@@ -375,8 +375,8 @@
 </li>
 </ol>
 <p>$$<br>PnL=1.03\times S(1y)-110\times(1+0.5\%)<br>\tag{2.1}<br>$$</p>
-<p>where $S(1y)$ is the exchange rate at time $T=1y$.</p>
-<p>Note that from <a href="https://en.wikipedia.org/wiki/Interest_rate_parity" target="_blank" rel="noopener">covered interest rate parity (CIP)</a>,</p>
+<p>where $S(1y)$ is the exchange rate at time $T=1y$, unknown at time $0$. This will be used in roll-down analysis.</p>
+<p>But first let’s look at carry, which does not depend on $S(1y)$. Note that from <a href="https://en.wikipedia.org/wiki/Interest_rate_parity" target="_blank" rel="noopener">covered interest rate parity (CIP)</a>,</p>
 <p>$$<br>F(0,1Y)=S(0)\times\frac{1+r_d}{1+r_f}=107.33<br>\tag{2.2}<br>$$</p>
 <p>So according to $(1.2)$, <strong>carry</strong> is</p>
 <p>$$<br>S(0)-F(0,1y)=110-107.33=2.67\approx2.75=110\times(3\%-0.5\%)<br>\tag{2.3}<br>$$</p>
@@ -384,12 +384,25 @@
 <p>$$<br>F(1y,1y)=S(1y)=S(0)=110<br>\tag{2.4}<br>$$</p>
 <p>then the 1y roll-down is exactly the one year carry,</p>
 <p>$$<br>F(1y,1y)-F(0,1y)=S(0)-F(0,1y)=2.67<br>\tag{2.5}<br>$$</p>
-<p><strong>In sum in currency trade $(1.2)$, $T$-year carry is $T$-year roll-down, and also equals to the expected PnL if exchange rate curve stays the same.</strong></p>
+<p><strong>To sum up, in currency trade $(1.2)$, $T$-year carry is $T$-year roll-down, and also equals to the expected PnL if exchange rate curve stays the same.</strong></p>
 <p>This roll-down assumption contradicts the <a href="https://en.wikipedia.org/wiki/Interest_rate_parity" target="_blank" rel="noopener">uncovered interest rate parity (UIP)</a> where </p>
 <p>$$<br>E\left[F(T,T)\right]=E[S(T)]=S(0)\times\frac{1+r_d}{1+r_f}=107.33<br>\tag{2.6}<br>$$</p>
 <p>as oppose to (unchanged) $110$ in $(2.4)$. So the expected PnL$=(107.33-110)+2.33=0$. In other words, under UIP carry trade is not expected to make money because currency devaluation should exactly offset the benefit from the interest rate differential. In practice, however, currencies of countries with higher interest rates often appreciate rather than depreciate. This is known as the “forward premium puzzle”. One explanation to the puzzle is that like other risk premiums, currency carry enjoys continuous small gains/premiums while suffers rare but sharp losses.</p>
-<h2 id="Interest-Rate"><a href="#Interest-Rate" class="headerlink" title="Interest Rate"></a>Interest Rate</h2><p>Let’s look at <a href="https://quant.stackexchange.com/questions/36253/question-on-pure-carry-for-two-bonds?noredirect=1&amp;lq=1" target="_blank" rel="noopener">this stackexchange example</a> of carrying 10 year bond for 1 year. corresponding to $T=1y,M=10y$ in $(1.3)$.</p>
-<h2 id="Commodity"><a href="#Commodity" class="headerlink" title="Commodity"></a>Commodity</h2><h2 id="Volatility"><a href="#Volatility" class="headerlink" title="Volatility"></a>Volatility</h2><p><strong>Reference</strong></p>
+<h2 id="Interest-Rate"><a href="#Interest-Rate" class="headerlink" title="Interest Rate"></a>Interest Rate</h2><p>Let’s look at <a href="https://quant.stackexchange.com/questions/36253/question-on-pure-carry-for-two-bonds?noredirect=1&amp;lq=1" target="_blank" rel="noopener">this stackexchange example</a> of carrying 10y bond for 1 year. corresponding to $T=1y,M=10y$ in $(1.3)$. Assume today 9y and 10y yields are 1.870% and 1.917% respectively; 10Y bond having an annual 3% coupon at a yield of 1.917% results in a dirty price of 109.81, financed by a repo rate of 1.70%. I used <a href="https://dqydj.com/bond-yield-to-maturity-calculator/" target="_blank" rel="noopener">this online calculator</a> to come up with numbers.</p>
+<p><a href="https://en.wikipedia.org/wiki/Forward_price" target="_blank" rel="noopener">Forward price</a>, in this case the 10y bond fair forward dirty price $F(0,1y,10y)$, where $F(0,1y,10y)$ reads as at time $0$ (today), forward contract maturing in $1y$, and underlying is a 10y bond, depends on the repo rate and coupon rate ([1]).</p>
+<p>$$<br>F(0,1y,10y)=S(0,10y)+S(0,10y)*1.7\%-100\times3\%=108.68<br>\tag{3.1}<br>$$</p>
+<p>where $S(0,10y)$ is today’s 10y bond dirty price $109.81$ and $100$ is its face value used in calculating coupon payment. This is the counterpart of covered interest rate parity in currency, derived from no-arbitrage argument. If this equation doesn’t hold then there is a risk-free arbitrage opportunity by purchasing bonds financed on repo and delivering in the future.</p>
+<p><strong>Carry</strong> $(1.2)$, is essentially the repo cost minus the coupon,</p>
+<p>$$<br>Carry=S(0,10y)-F(0,1y,10y)=109.81-108.68=1.13<br>\tag{3.2}<br>$$</p>
+<p>THe forward yield ([1]) is $1.944\%$ and yield carry is</p>
+<p>$$<br>YieldCarry=1.944\%-1.917\%=0.27\%<br>\tag{3.3}<br>$$</p>
+<p>Similar to last section, we have two assumptions about the unknown price $F(1y,1y,9y)$ in the future, where $F(1y,1y,9y)$ reads as the 10y bond forward dirty price in $1y$, forward contract maturing also in $1y$, and the underlying bond having $9y$ left to maturity in $1y$.</p>
+<p>First, as counterpart to uncovered interest rate parity in currency, if we expect it to be today’s forward price, or </p>
+<p>$$<br>E\left[F(1y,1y,9y)\right]=F(0y,1y,10y)<br>\tag{3.3}<br>$$</p>
+<p>then there is no profit. The benefit of carry is completely offset by mark-to-market. This can be verified by formula $(1.3)$.</p>
+<p>This is an unreasonable assumption because bond price has pull-to-par effect. So a more reasonable assumption is to assume today’s yield curve stays the same and the 10y bond rolls down one year to a 9y bond ($1.87\%$), in which case its price would be $109.32$. So you loose $(109.32-109.81)+1.13=0.64$. </p>
+<h2 id="Commodity"><a href="#Commodity" class="headerlink" title="Commodity"></a>Commodity</h2><p>Commodity is similar to currency, except that its <a href="https://en.wikipedia.org/wiki/Convenience_yield" target="_blank" rel="noopener">convenience yield</a> is hard to estimate but can be implied from forward price. For example, assume in formula $(1.2)$, $T=3m$, $S(0)=70$, $F(0,3m)=65$, then carry is $5$ and the roll-down, assuming spot price staying the same, is also $5$.</p>
+<p><strong>Reference</strong></p>
 <p>[1] Amir Sadr. Interest Rate Swaps and Their Derivatives. 2009.</p>
 <p>[2] Koijen, Ralph SJ, et al. Carry. No. w19325. National Bureau of Economic Research, 2013.</p>
 <p>[3] <a href="https://quant.stackexchange.com/questions/36253/question-on-pure-carry-for-two-bonds?noredirect=1&amp;lq=1" target="_blank" rel="noopener">Question on Pure Carry for Two Bonds; Stack Exchange</a></p>
@@ -619,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Foreign-Exchange"><span class="nav-number">2.</span> <span class="nav-text">Foreign Exchange</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interest-Rate"><span class="nav-number">3.</span> <span class="nav-text">Interest Rate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Commodity"><span class="nav-number">4.</span> <span class="nav-text">Commodity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Volatility"><span class="nav-number">5.</span> <span class="nav-text">Volatility</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Foreign-Exchange"><span class="nav-number">2.</span> <span class="nav-text">Foreign Exchange</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interest-Rate"><span class="nav-number">3.</span> <span class="nav-text">Interest Rate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Commodity"><span class="nav-number">4.</span> <span class="nav-text">Commodity</span></a></li></ol></div>
             
 
           </div>
