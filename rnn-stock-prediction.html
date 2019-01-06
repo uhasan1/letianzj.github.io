@@ -83,16 +83,14 @@
 <meta name="keywords" content="TensorFlow,Machine Learning,Deep Learning,Linear Regression">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tensorflow Linear Regression">
-<meta property="og:url" content="http://letianquant.com/tensorflow-linear-regression.html">
+<meta property="og:url" content="http://letianquant.com/rnn-stock-prediction.html">
 <meta property="og:site_name" content="Letian Wang">
 <meta property="og:description" content="IntroductionAfter four posts on linear regression, we are finally at the door of deep learning. Today we will build a simple feed-forward neural network (but not deep) with the help of Tensorflow to s">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://letianquant.com/tensorflow-linear-regression/tensorboard.png">
 <meta property="og:updated_time" content="2018-10-16T00:31:23.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tensorflow Linear Regression">
 <meta name="twitter:description" content="IntroductionAfter four posts on linear regression, we are finally at the door of deep learning. Today we will build a simple feed-forward neural network (but not deep) with the help of Tensorflow to s">
-<meta name="twitter:image" content="http://letianquant.com/tensorflow-linear-regression/tensorboard.png">
 
 
 
@@ -122,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://letianquant.com/tensorflow-linear-regression.html"/>
+  <link rel="canonical" href="http://letianquant.com/rnn-stock-prediction.html"/>
 
 
 
@@ -245,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://letianquant.com/tensorflow-linear-regression.html">
+    <link itemprop="mainEntityOfPage" href="http://letianquant.com/rnn-stock-prediction.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Letian">
@@ -326,9 +324,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/tensorflow-linear-regression.html#comments" itemprop="discussionUrl">
+                <a href="/rnn-stock-prediction.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="tensorflow-linear-regression.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="rnn-stock-prediction.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -370,7 +368,7 @@
 <h2 id="Linear-Regression-via-OLS"><a href="#Linear-Regression-via-OLS" class="headerlink" title="Linear Regression via OLS"></a>Linear Regression via OLS</h2><p>It is time to construct a full example by using tf.Variable and tf.placeholder, define batch and feed them foward into feed dictionary, and propagate back the errors into a <a href="https://en.wikipedia.org/wiki/Gradient_descent" target="_blank" rel="noopener">Gradient Descent</a> optimizer.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">tf.reset_default_graph()</span><br><span class="line">batch_size = <span class="number">50</span></span><br><span class="line">n_batches = int(<span class="number">500</span>/batch_size)</span><br><span class="line">n_epochs = <span class="number">1000</span></span><br><span class="line">learing_rate = <span class="number">0.01</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># define the graph</span></span><br><span class="line">w = tf.Variable(tf.truncated_normal([<span class="number">1</span>], mean=<span class="number">0.0</span>, stddev=<span class="number">1.0</span>, dtype=tf.float64, name=<span class="string">'slope'</span>))</span><br><span class="line">b = tf.Variable(tf.zeros(<span class="number">1</span>, dtype=tf.float64), name=<span class="string">'intercept'</span>)</span><br><span class="line">x_ph = tf.placeholder(tf.float64, shape=(<span class="keyword">None</span>, <span class="number">1</span>), name=<span class="string">'x'</span>)</span><br><span class="line">y_ph = tf.placeholder(tf.float64, shape=(<span class="keyword">None</span>, <span class="number">1</span>), name=<span class="string">'y'</span>)</span><br><span class="line">y_pred = tf.add(b, tf.multiply(w, x_ph), name=<span class="string">'prediction'</span>)</span><br><span class="line">error = y_pred - y_ph</span><br><span class="line">mse = tf.reduce_mean(tf.square(error), name=<span class="string">'mse'</span>)</span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(learning_rate=learing_rate)</span><br><span class="line">training_op = optimizer.minimize(mse)</span><br><span class="line"></span><br><span class="line"><span class="comment"># record to TensorBoard</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line">now = datetime.now().strftime(<span class="string">'%Y%m%d%H%M%S'</span>)</span><br><span class="line">logdir = <span class="string">'tf_logs/run-&#123;&#125;'</span>.format(now)</span><br><span class="line">mse_summary = tf.summary.scalar(<span class="string">'MSE'</span>, mse)</span><br><span class="line">file_writer = tf.summary.FileWriter(logdir, tf.get_default_graph())</span><br><span class="line"></span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(init)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> range(n_epochs):</span><br><span class="line">        <span class="keyword">for</span> batch_index <span class="keyword">in</span> range(n_batches):</span><br><span class="line">            <span class="comment"># Mini-batch gradient descent</span></span><br><span class="line">            x_batch = x[batch_index*batch_size:(batch_index+<span class="number">1</span>)*batch_size].reshape(<span class="number">-1</span>,<span class="number">1</span>)</span><br><span class="line">            y_batch = y[batch_index * batch_size:(batch_index + <span class="number">1</span>) * batch_size].reshape(<span class="number">-1</span>, <span class="number">1</span>)</span><br><span class="line">            sess.run(training_op, feed_dict=&#123;x_ph: x_batch, y_ph: y_batch&#125;)</span><br><span class="line"></span><br><span class="line">            summary_str = mse_summary.eval(feed_dict=&#123;x_ph: x_batch, y_ph: y_batch&#125;)</span><br><span class="line">            step = epoch *  n_batches + batch_index</span><br><span class="line">            file_writer.add_summary(summary_str, step)</span><br><span class="line"></span><br><span class="line">        w_val, b_val = sess.run([w, b])</span><br><span class="line">        print(<span class="string">'epoch &#123;&#125;: slope &#123;&#125;, intercept &#123;&#125;'</span>.format(epoch, w_val[<span class="number">0</span>], b_val[<span class="number">0</span>]))</span><br><span class="line"></span><br><span class="line">file_writer.close()</span><br></pre></td></tr></table></figure>
 <p>Below graph shows how x and y combine with intercept and slope to form prediction; then pass through two operations of sub and square to reach mse; and eventually how they contribute to the gradient descent optimizer. This code snippet scratched the surface of Tensorflow; deep down, it is still a traditional numerical minimization. Next step we are going to investigate a real deep neutral network called Long Short Term Memory (LSTM), which suits very well in financial time series analysis such as stock market forecast.</p>
-<img src="/tensorflow-linear-regression/tensorboard.png" title="Tensorboard">
+
 <p><strong>Reference</strong></p>
 <ul>
 <li>Géron, Aurélien. Hands-on machine learning with Scikit-Learn and TensorFlow: concepts, tools, and techniques to build intelligent systems. “ O’Reilly Media, Inc.”, 2017.</li>
@@ -395,7 +393,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="http://letianquant.com/tensorflow-linear-regression.html" title="Tensorflow Linear Regression">http://letianquant.com/tensorflow-linear-regression.html</a>
+    <a href="http://letianquant.com/rnn-stock-prediction.html" title="Tensorflow Linear Regression">http://letianquant.com/rnn-stock-prediction.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -425,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/rnn-stock-prediction.html" rel="next" title="Tensorflow Linear Regression">
-                <i class="fa fa-chevron-left"></i> Tensorflow Linear Regression
+              <a href="/kalman-filter-linear-regression.html" rel="next" title="Kalman Filter Linear Regression">
+                <i class="fa fa-chevron-left"></i> Kalman Filter Linear Regression
               </a>
             
           </div>
@@ -435,8 +433,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/elitequant-backtesting.html" rel="prev" title="Elitequant Backtesting">
-                Elitequant Backtesting <i class="fa fa-chevron-right"></i>
+              <a href="/tensorflow-linear-regression.html" rel="prev" title="Tensorflow Linear Regression">
+                Tensorflow Linear Regression <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -775,8 +773,8 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://letianquant.com/tensorflow-linear-regression.html';
-          this.page.identifier = 'tensorflow-linear-regression.html';
+          this.page.url = 'http://letianquant.com/rnn-stock-prediction.html';
+          this.page.identifier = 'rnn-stock-prediction.html';
           this.page.title = 'Tensorflow Linear Regression';
         };
         var d = document, s = d.createElement('script');

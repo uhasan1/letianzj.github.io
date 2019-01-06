@@ -2,7 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://letianquant.com/welcome.html</loc>
-    <lastmod>2019-01-06T01:55:41.955Z</lastmod>
+    <lastmod>2019-01-06T02:06:39.763Z</lastmod>
+  </url>  <url>
+    <loc>http://letianquant.com/kalman-filter-linear-regression.html</loc>
+    <lastmod>2019-01-06T01:32:27.962Z</lastmod>
   </url>  <url>
     <loc>http://letianquant.com/bak/carry-and-roll-down.html</loc>
     <lastmod>2018-10-18T00:53:56.423Z</lastmod>
@@ -25,6 +28,9 @@
     <loc>http://letianquant.com/tensorflow-linear-regression.html</loc>
     <lastmod>2018-10-16T00:31:23.106Z</lastmod>
   </url>  <url>
+    <loc>http://letianquant.com/rnn-stock-prediction.html</loc>
+    <lastmod>2018-10-16T00:31:23.106Z</lastmod>
+  </url>  <url>
     <loc>http://letianquant.com/portfolio-management-one.html</loc>
     <lastmod>2018-10-16T00:30:50.683Z</lastmod>
   </url>  <url>
@@ -36,9 +42,6 @@
   </url>  <url>
     <loc>http://letianquant.com/kalman-filter-pairs-trading.html</loc>
     <lastmod>2018-10-16T00:26:28.118Z</lastmod>
-  </url>  <url>
-    <loc>http://letianquant.com/kalman-filter-linear-regression.html</loc>
-    <lastmod>2018-10-16T00:24:16.293Z</lastmod>
   </url>  <url>
     <loc>http://letianquant.com/elitequant-excel.html</loc>
     <lastmod>2018-10-16T00:23:06.602Z</lastmod>
