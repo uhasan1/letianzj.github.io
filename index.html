@@ -356,9 +356,180 @@
             <p>Thanks for visiting my blog; a site dedicated to quantitative trading, systematic investing, and machine learning in finance. </p>
 <p>You may also like the <a href="https://github.com/EliteQuant" target="_blank" rel="noopener">EliteQuant projects</a> I’m hosting on GitHub. It provides consistent backtesting and live trading solutions across C++, C#, Python, R, Excel, and Matlab.</p>
 <p>Some mathematical finance notes can be found on <a href="https://letianquant.wordpress.com/" target="_blank" rel="noopener">my legacy wordpress page</a>.</p>
-<p>I hope you enjoy this site. Please feel free to leave your comments or send me an email.</p>
+<p>I hope you enjoy this site. Please feel free to leave your comments.</p>
 
           
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://letianquant.com/rnn-stock-prediction.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Letian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Letian Wang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/rnn-stock-prediction.html" itemprop="url">RNN Stock Prediction</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-24T22:30:00-05:00">
+                2018-11-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/rnn-stock-prediction.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="rnn-stock-prediction.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+		  
+		  
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Finanical time series are time stamped sequential data where traditional <a href="https://en.wikipedia.org/wiki/Feedforward_neural_network" target="_blank" rel="noopener">feed-forward neural network</a> doesn’t handle well. <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network" target="_blank" rel="noopener">Recurrent neural network (RNN)</a> solves this issue by feeding output neurons back into the input to provide memories of previous states. This turns out to be a huge success, especially in Natural Language Processing. Later on, <a href="https://en.wikipedia.org/wiki/Long_short-term_memory" target="_blank" rel="noopener">Long short-term memory (LSTM)</a> and <a href="https://en.wikipedia.org/wiki/Gated_recurrent_unit" target="_blank" rel="noopener">Gated Recurrent Unit(GRU)</a> are designed to alleviate the so-called vanishing/exploding gradients issues in the back-propagation phase of RNNs. </p>
+<p>In this post, I will build an RNN model with LSTM or GRU cell to predict the prices of S&amp;P 500. To be specific, a <a href="https://en.wikipedia.org/wiki/Supervised_learning" target="_blank" rel="noopener">supervised machine learning</a> model will be calibrated to predict tomorrow’s S&amp;P 500 close price based on the prices from the previous 20 business days. This is a regression problem; yet the codes can be easily adapted to handle classification problem such as simply predicting tomorrow’s market direction. The code is located on <a href="https://github.com/EliteQuant/EliteQuant_Python/tree/master/research" target="_blank" rel="noopener">Github</a>.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/rnn-stock-prediction.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1555,177 +1726,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/tensorflow-linear-regression.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://letianquant.com/rnn-stock-prediction.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Letian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Letian Wang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/rnn-stock-prediction.html" itemprop="url">Tensorflow Linear Regression</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-20T22:50:00-05:00">
-                2018-01-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep Learning</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/rnn-stock-prediction.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="rnn-stock-prediction.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-		  
-		  
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>After four posts on linear regression, we are finally at the door of <a href="https://en.wikipedia.org/wiki/Deep_learning" target="_blank" rel="noopener">deep learning</a>. Today we will build a simple <a href="https://en.wikipedia.org/wiki/Feedforward_neural_network" target="_blank" rel="noopener">feed-forward neural network</a> (but not deep) with the help of <a href="https://en.wikipedia.org/wiki/TensorFlow" target="_blank" rel="noopener">Tensorflow</a> to solve the linear regression problem. Tensorflow is a popular open-source deep learning library, especially after the retirement of <a href="">Theano</a>. To learn more about installing and using Tensorflow, their <a href="https://www.tensorflow.org/" target="_blank" rel="noopener">official website</a> offers a lot of interesting materials.</p>
-<p>Tensorflow structure consists of two phases – <a href="https://www.tensorflow.org/guide/graphs" target="_blank" rel="noopener">Graphs and Sessions</a>. Usually you start with building a graph and then let the data (in the format of multidimensional array or tensor) flow through the graph, hence the name Tensorflow.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/rnn-stock-prediction.html#more" rel="contents">
               Read more &raquo;
             </a>
           </div>

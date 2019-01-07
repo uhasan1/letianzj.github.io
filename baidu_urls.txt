@@ -1,3 +1,3 @@
+http://letianquant.com/rnn-stock-prediction.html
 http://letianquant.com/hidden-markov-chain.html
 http://letianquant.com/welcome.html
-http://letianquant.com/kalman-filter-pairs-trading.html
